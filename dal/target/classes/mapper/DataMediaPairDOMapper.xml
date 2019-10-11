@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.DataMediaPairDOMapperExt">
+  <resultMap id="BaseResultMap" type="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PULLWEIGHT" jdbcType="BIGINT" property="pullWeight" />
+    <result column="PUSHWEIGHT" jdbcType="BIGINT" property="pushWeight" />
+    <result column="SOURCE_DATA_MEDIA_ID" jdbcType="BIGINT" property="sourceDataMediaId" />
+    <result column="TARGET_DATA_MEDIA_ID" jdbcType="BIGINT" property="targetDataMediaId" />
+    <result column="PIPELINE_ID" jdbcType="BIGINT" property="pipelineId" />
+    <result column="COLUMN_PAIR_MODE" jdbcType="VARCHAR" property="columnPairMode" />
+    <result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="RESOLVER" jdbcType="LONGVARCHAR" property="resolver" />
+    <result column="FILTER" jdbcType="LONGVARCHAR" property="filter" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, PULLWEIGHT, PUSHWEIGHT, SOURCE_DATA_MEDIA_ID, TARGET_DATA_MEDIA_ID, PIPELINE_ID, 
+    COLUMN_PAIR_MODE, GMT_CREATE, GMT_MODIFIED
+  </sql>
+  <sql id="Blob_Column_List">
+    RESOLVER, FILTER
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from data_media_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from data_media_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from data_media_pair
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from data_media_pair
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDOExample">
+    delete from data_media_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into data_media_pair (PULLWEIGHT, PUSHWEIGHT, SOURCE_DATA_MEDIA_ID, 
+      TARGET_DATA_MEDIA_ID, PIPELINE_ID, COLUMN_PAIR_MODE, 
+      GMT_CREATE, GMT_MODIFIED, RESOLVER, 
+      FILTER)
+    values (#{pullWeight,jdbcType=BIGINT}, #{pushWeight,jdbcType=BIGINT}, #{sourceDataMediaId,jdbcType=BIGINT}, 
+      #{targetDataMediaId,jdbcType=BIGINT}, #{pipelineId,jdbcType=BIGINT}, #{columnPairMode,jdbcType=VARCHAR}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{resolver,jdbcType=LONGVARCHAR}, 
+      #{filter,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into data_media_pair
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pullWeight != null">
+        PULLWEIGHT,
+      </if>
+      <if test="pushWeight != null">
+        PUSHWEIGHT,
+      </if>
+      <if test="sourceDataMediaId != null">
+        SOURCE_DATA_MEDIA_ID,
+      </if>
+      <if test="targetDataMediaId != null">
+        TARGET_DATA_MEDIA_ID,
+      </if>
+      <if test="pipelineId != null">
+        PIPELINE_ID,
+      </if>
+      <if test="columnPairMode != null">
+        COLUMN_PAIR_MODE,
+      </if>
+      <if test="gmtCreate != null">
+        GMT_CREATE,
+      </if>
+      <if test="gmtModified != null">
+        GMT_MODIFIED,
+      </if>
+      <if test="resolver != null">
+        RESOLVER,
+      </if>
+      <if test="filter != null">
+        FILTER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pullWeight != null">
+        #{pullWeight,jdbcType=BIGINT},
+      </if>
+      <if test="pushWeight != null">
+        #{pushWeight,jdbcType=BIGINT},
+      </if>
+      <if test="sourceDataMediaId != null">
+        #{sourceDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="targetDataMediaId != null">
+        #{targetDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="pipelineId != null">
+        #{pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="columnPairMode != null">
+        #{columnPairMode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resolver != null">
+        #{resolver,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="filter != null">
+        #{filter,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDOExample" resultType="java.lang.Long">
+    select count(*) from data_media_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update data_media_pair
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.pullWeight != null">
+        PULLWEIGHT = #{record.pullWeight,jdbcType=BIGINT},
+      </if>
+      <if test="record.pushWeight != null">
+        PUSHWEIGHT = #{record.pushWeight,jdbcType=BIGINT},
+      </if>
+      <if test="record.sourceDataMediaId != null">
+        SOURCE_DATA_MEDIA_ID = #{record.sourceDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="record.targetDataMediaId != null">
+        TARGET_DATA_MEDIA_ID = #{record.targetDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="record.pipelineId != null">
+        PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="record.columnPairMode != null">
+        COLUMN_PAIR_MODE = #{record.columnPairMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreate != null">
+        GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null">
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resolver != null">
+        RESOLVER = #{record.resolver,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.filter != null">
+        FILTER = #{record.filter,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update data_media_pair
+    set ID = #{record.id,jdbcType=BIGINT},
+      PULLWEIGHT = #{record.pullWeight,jdbcType=BIGINT},
+      PUSHWEIGHT = #{record.pushWeight,jdbcType=BIGINT},
+      SOURCE_DATA_MEDIA_ID = #{record.sourceDataMediaId,jdbcType=BIGINT},
+      TARGET_DATA_MEDIA_ID = #{record.targetDataMediaId,jdbcType=BIGINT},
+      PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      COLUMN_PAIR_MODE = #{record.columnPairMode,jdbcType=VARCHAR},
+      GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      RESOLVER = #{record.resolver,jdbcType=LONGVARCHAR},
+      FILTER = #{record.filter,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update data_media_pair
+    set ID = #{record.id,jdbcType=BIGINT},
+      PULLWEIGHT = #{record.pullWeight,jdbcType=BIGINT},
+      PUSHWEIGHT = #{record.pushWeight,jdbcType=BIGINT},
+      SOURCE_DATA_MEDIA_ID = #{record.sourceDataMediaId,jdbcType=BIGINT},
+      TARGET_DATA_MEDIA_ID = #{record.targetDataMediaId,jdbcType=BIGINT},
+      PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      COLUMN_PAIR_MODE = #{record.columnPairMode,jdbcType=VARCHAR},
+      GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    update data_media_pair
+    <set>
+      <if test="pullWeight != null">
+        PULLWEIGHT = #{pullWeight,jdbcType=BIGINT},
+      </if>
+      <if test="pushWeight != null">
+        PUSHWEIGHT = #{pushWeight,jdbcType=BIGINT},
+      </if>
+      <if test="sourceDataMediaId != null">
+        SOURCE_DATA_MEDIA_ID = #{sourceDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="targetDataMediaId != null">
+        TARGET_DATA_MEDIA_ID = #{targetDataMediaId,jdbcType=BIGINT},
+      </if>
+      <if test="pipelineId != null">
+        PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="columnPairMode != null">
+        COLUMN_PAIR_MODE = #{columnPairMode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified == null">
+        GMT_MODIFIED = NOW(),
+      </if>
+      <if test="resolver != null">
+        RESOLVER = #{resolver,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="filter != null">
+        FILTER = #{filter,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    update data_media_pair
+    set PULLWEIGHT = #{pullWeight,jdbcType=BIGINT},
+      PUSHWEIGHT = #{pushWeight,jdbcType=BIGINT},
+      SOURCE_DATA_MEDIA_ID = #{sourceDataMediaId,jdbcType=BIGINT},
+      TARGET_DATA_MEDIA_ID = #{targetDataMediaId,jdbcType=BIGINT},
+      PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      COLUMN_PAIR_MODE = #{columnPairMode,jdbcType=VARCHAR},
+      GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      RESOLVER = #{resolver,jdbcType=LONGVARCHAR},
+      FILTER = #{filter,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caicai.ottx.dal.entity.DataMediaPairDO">
+    update data_media_pair
+    set PULLWEIGHT = #{pullWeight,jdbcType=BIGINT},
+      PUSHWEIGHT = #{pushWeight,jdbcType=BIGINT},
+      SOURCE_DATA_MEDIA_ID = #{sourceDataMediaId,jdbcType=BIGINT},
+      TARGET_DATA_MEDIA_ID = #{targetDataMediaId,jdbcType=BIGINT},
+      PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      COLUMN_PAIR_MODE = #{columnPairMode,jdbcType=VARCHAR},
+      GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

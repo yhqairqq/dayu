@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.PipelineNodeRelationDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+  <select id="listRelationsByPipelineIds" resultMap="BaseResultMap">
+    SELECT * FROM pipeline_node_relation
+    where PIPELINE_ID in
+    <foreach collection="array" item = "id" open="(" separator="," close=")" index="index">
+      #{id}
+    </foreach>
+    ORDER BY ID DESC
+
+  </select>
+  <select id="listRelationsByNodeId" resultMap="BaseResultMap">
+    SELECT * FROM pipeline_node_relation
+    WHERE NODE_ID = #{0}
+    ORDER  BY  ID DESC
+  </select>
+</mapper>

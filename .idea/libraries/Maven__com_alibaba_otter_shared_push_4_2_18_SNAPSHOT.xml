@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.otter:shared.push:4.2.18-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/maven_local2/com/alibaba/otter/shared.push/4.2.18-SNAPSHOT/shared.push-4.2.18-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/maven_local2/com/alibaba/otter/shared.push/4.2.18-SNAPSHOT/shared.push-4.2.18-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/maven_local2/com/alibaba/otter/shared.push/4.2.18-SNAPSHOT/shared.push-4.2.18-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

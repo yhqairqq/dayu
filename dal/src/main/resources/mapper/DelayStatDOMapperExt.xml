@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.DelayStatDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+
+  <resultMap id="topDelayStatResult" type="com.caicai.ottx.service.statistics.delay.param.TopDelayStat">
+    <result property="channelName" column="CHANNEL_NAME" />
+    <result property="pipelineName" column="PIPELINE_NAME" />
+    <result property="channelId" column="CHANNEL_ID" />
+    <result property="pipelineId" column="PIPELINE_ID" />
+    <result property="delayTime" column="DELAY_TIME" />
+    <result property="lastUpdate" column="GMT_CREATE" />
+  </resultMap>
+
+
+  <select id="findDelayStatById" resultMap="BaseResultMap" >
+    select *
+
+    from DELAY_STAT where ID = #{0}
+  </select>
+
+  <!-- findRealtimeDelayStat -->
+  <select id="findRealtimeDelayStat" resultMap="BaseResultMap" >
+    select
+   *
+    from DELAY_STAT
+    where PIPELINE_ID=#{pipelineId}
+    ORDER BY GMT_MODIFIED DESC, ID DESC limit 1
+  </select>
+  <!-- listAllDelayStat -->
+  <select id="listAllDelayStat" resultMap="BaseResultMap">
+    select *
+    from DELAY_STAT ORDER BY GMT_MODIFIED DESC,ID DESC
+  </select>
+
+  <!-- listDelayStatsByPipelineId -->
+  <select id="listDelayStatsByPipelineId" resultMap="BaseResultMap" >
+    select *
+    from DELAY_STAT
+    where PIPELINE_ID=#{0}
+    ORDER BY GMT_MODIFIED DESC,ID DESC
+  </select>
+
+  <select id="listTimelineDelayStatsByPipelineId" resultMap="BaseResultMap" parameterType="com.caicai.ottx.service.statistics.delay.param.TimelineDelayCondition">
+    select
+   *
+    from DELAY_STAT
+    where PIPELINE_ID=#{pipelineId} and <![CDATA[ GMT_CREATE>= #{start} and GMT_CREATE <= #{end}]]>
+    ORDER BY GMT_MODIFIED DESC,ID DESC
+  </select>
+
+
+  <select id="listTopByName" resultMap="topDelayStatResult">
+    select p.* , d.DELAY_TIME , d.GMT_CREATE
+		from DELAY_STAT d , (
+			select p.CHANNEL_ID , p.ID as PIPELINE_ID , c.NAME as CHANNEL_NAME, p.NAME as PIPELINE_NAME from CHANNEL c , PIPELINE p
+			where 1 = 1 and c.ID = p.CHANNEL_ID
+              <if test="searchKey != null">
+               AND c.NAME like concat('%',#{searchKey},'%')
+              </if>
+			) p
+			where d.ID = (
+				select d1.ID from DELAY_STAT d1
+					where d1.PIPELINE_ID = p.PIPELINE_ID order by d1.PIPELINE_ID desc , d1.GMT_CREATE desc limit 1
+				)
+			order by d.DELAY_TIME desc , d.ID desc
+			<if test="topN != null">
+              limit #{topN}
+            </if>
+  </select>
+</mapper>

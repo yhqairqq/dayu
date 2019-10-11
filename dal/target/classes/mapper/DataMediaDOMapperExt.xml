@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.DataMediaDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+
+  <select id="listDataMedias" resultMap="BaseResultMap">
+    SELECT * from data_media
+    ORDER  BY  ID DESC
+  </select>
+
+  <select id="listDataMediaByIds" resultMap="BaseResultMap">
+    SELECT * from data_media
+    WHERE  ID IN
+    <foreach collection="array" item = "id" open="(" separator="," close=")" index="index">
+      #{id}
+    </foreach>
+    ORDER BY ID DESC
+
+  </select>
+  <select id="listDataMediasByDataMediaSourceId" resultMap="BaseResultMap">
+    SELECT * FROM  data_media
+    WHERE DATA_MEDIA_SOURCE_ID = #{0}
+    ORDER  BY  ID DESC
+
+  </select>
+
+</mapper>

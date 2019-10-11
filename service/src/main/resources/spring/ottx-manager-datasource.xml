@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName">
+
+	<bean id="dataSourceCreator" class="com.caicai.ottx.service.common.DataSourceCreator" >
+		<property name="dataSourceHandlers">
+			<list>
+				<ref bean="mediaPushDataSourceHandler" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="mediaPushDataSourceHandler" class="com.alibaba.otter.common.push.datasource.media.MediaPushDataSourceHandler" scope="singleton" />
+</beans>

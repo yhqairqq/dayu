@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.NodeDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+
+  <select id="listNodeByIds" resultMap="BaseResultMap">
+      select * from node
+      WHERE  ID IN
+    <foreach collection="array" item = "id" open="(" separator="," close=")" index="index">
+      #{id}
+    </foreach>
+    ORDER BY ID DESC
+  </select>
+
+    <select id="listNodes" resultMap="BaseResultMap">
+        SELECT * FROM node
+        ORDER  BY  ID DESC
+    </select>
+
+    <select id="checkNodeUnique" resultType="Integer" parameterType="com.caicai.ottx.dal.entity.NodeDO">
+
+        	select count(*) from NODE
+		where ID !=#{id}
+		and
+		NAME = #{name}
+		and IP = #{ip}
+
+    </select>
+</mapper>

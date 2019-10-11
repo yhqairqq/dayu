@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.AutoKeeperClusterDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+  <select id="listAutoKeeperClusters" resultMap="BaseResultMap">
+    SELECT * FROM  autokeeper_cluster
+    ORDER BY  ID DESC
+  </select>
+</mapper>

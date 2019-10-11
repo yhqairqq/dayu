@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.AlarmRuleDOMapperExt">
+  <resultMap id="BaseResultMap" type="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="MONITOR_NAME" jdbcType="VARCHAR" property="monitorName" />
+    <result column="RECEIVER_KEY" jdbcType="VARCHAR" property="receiverKey" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="PIPELINE_ID" jdbcType="BIGINT" property="pipelineId" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="MATCH_VALUE" jdbcType="VARCHAR" property="matchValue" />
+    <result column="PARAMETERS" jdbcType="LONGVARCHAR" property="alarmRuleParameter" typeHandler="com.caicai.ottx.dal.handler.AlarmRuleParameterTypeHandler" />
+  </resultMap>
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, MONITOR_NAME, RECEIVER_KEY, STATUS, PIPELINE_ID, DESCRIPTION, GMT_CREATE, GMT_MODIFIED,
+    MATCH_VALUE
+  </sql>
+  <sql id="Blob_Column_List">
+    PARAMETERS
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from alarm_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from alarm_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from alarm_rule
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from alarm_rule
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDOExample">
+    delete from alarm_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into alarm_rule (MONITOR_NAME, RECEIVER_KEY, STATUS,
+      PIPELINE_ID, DESCRIPTION, GMT_CREATE,
+      GMT_MODIFIED, MATCH_VALUE, PARAMETERS
+      )
+    values (#{monitorName,jdbcType=VARCHAR}, #{receiverKey,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+      #{pipelineId,jdbcType=BIGINT}, #{description,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP},
+      #{gmtModified,jdbcType=TIMESTAMP}, #{matchValue,jdbcType=VARCHAR}, #{alarmRuleParameter,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="monitorName != null">
+        MONITOR_NAME,
+      </if>
+      <if test="receiverKey != null">
+        RECEIVER_KEY,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="pipelineId != null">
+        PIPELINE_ID,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="gmtCreate != null">
+        GMT_CREATE,
+      </if>
+      <if test="gmtModified != null">
+        GMT_MODIFIED,
+      </if>
+      <if test="matchValue != null">
+        MATCH_VALUE,
+      </if>
+      <if test="alarmRuleParameter != null">
+        PARAMETERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="monitorName != null">
+        #{monitorName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverKey != null">
+        #{receiverKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pipelineId != null">
+        #{pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="matchValue != null">
+        #{matchValue,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmRuleParameter != null">
+        #{alarmRuleParameter,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDOExample" resultType="java.lang.Long">
+    select count(*) from alarm_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update alarm_rule
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.monitorName != null">
+        MONITOR_NAME = #{record.monitorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiverKey != null">
+        RECEIVER_KEY = #{record.receiverKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pipelineId != null">
+        PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreate != null">
+        GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null">
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.matchValue != null">
+        MATCH_VALUE = #{record.matchValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarmRuleParameter != null">
+        PARAMETERS = #{record.alarmRuleParameter,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update alarm_rule
+    set ID = #{record.id,jdbcType=BIGINT},
+      MONITOR_NAME = #{record.monitorName,jdbcType=VARCHAR},
+      RECEIVER_KEY = #{record.receiverKey,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      MATCH_VALUE = #{record.matchValue,jdbcType=VARCHAR},
+      PARAMETERS = #{record.alarmRuleParameter,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update alarm_rule
+    set ID = #{record.id,jdbcType=BIGINT},
+      MONITOR_NAME = #{record.monitorName,jdbcType=VARCHAR},
+      RECEIVER_KEY = #{record.receiverKey,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      PIPELINE_ID = #{record.pipelineId,jdbcType=BIGINT},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      GMT_CREATE = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      MATCH_VALUE = #{record.matchValue,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    update alarm_rule
+    <set>
+      <if test="monitorName != null">
+        MONITOR_NAME = #{monitorName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverKey != null">
+        RECEIVER_KEY = #{receiverKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pipelineId != null">
+        PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified == null">
+        GMT_MODIFIED = NOW(),
+      </if>
+      <if test="matchValue != null">
+        MATCH_VALUE = #{matchValue,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmRuleParameter != null">
+        PARAMETERS = #{alarmRuleParameter,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    update alarm_rule
+    set MONITOR_NAME = #{monitorName,jdbcType=VARCHAR},
+      RECEIVER_KEY = #{receiverKey,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      MATCH_VALUE = #{matchValue,jdbcType=VARCHAR},
+      PARAMETERS = #{alarmRuleParameter,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caicai.ottx.dal.entity.AlarmRuleDO">
+    update alarm_rule
+    set MONITOR_NAME = #{monitorName,jdbcType=VARCHAR},
+      RECEIVER_KEY = #{receiverKey,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      PIPELINE_ID = #{pipelineId,jdbcType=BIGINT},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      MATCH_VALUE = #{matchValue,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

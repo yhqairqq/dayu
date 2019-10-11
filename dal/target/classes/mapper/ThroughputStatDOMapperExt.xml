@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.ottx.dal.mapper.ThroughputStatDOMapperExt">
+  <!-- 扩展自动生成或自定义的SQl语句写在此文件中 -->
+  <resultMap id="throughputStatResult" type="com.caicai.ottx.dal.entity.ThroughputStatDO">
+    <result property="id" column="ID" />
+    <result property="pipelineId" column="PIPELINE_ID" />
+    <result property="startTime" column="START_TIME" />
+    <result property="endTime" column="END_TIME" />
+    <result property="type" column="TYPE" />
+    <result property="number" column="NUMBER" />
+    <result property="size" column="SIZE" />
+    <result property="gmtCreate" column="GMT_CREATE" />
+    <result property="gmtModified" column="GMT_MODIFIED" />
+  </resultMap>
+
+
+  <resultMap id="throughputStatSimpleResult" type="com.caicai.ottx.dal.entity.ThroughputStatDO">
+    <result property="pipelineId" column="PIPELINE_ID" />
+    <result property="type" column="TYPE" />
+    <result property="number" column="NUMBER" />
+    <result property="size" column="SIZE" />
+  </resultMap>
+  <select id="listRealtimeThroughputStatByPipelineIds" resultMap="throughputStatSimpleResult">
+    select PIPELINE_ID, type , sum(NUMBER) as number , sum(SIZE) as size
+		from THROUGHPUT_STAT
+		where PIPELINE_ID in
+		<foreach collection="pipelineIds" open="(" close=")" separator="," item="id" index="index">
+          #{id}
+        </foreach>
+    and TYPE in ('ROW','FILE') and END_TIME >= (now() - INTERVAL #{minute} MINUTE)
+    group by PIPELINE_ID , TYPE;
+
+  </select>
+
+  <select id="findRealtimeThroughputStat" resultMap="BaseResultMap" >
+    select
+    *
+    from THROUGHPUT_STAT
+    where PIPELINE_ID=#{pipelineId} and TYPE=#{type}
+    ORDER BY END_TIME DESC,ID DESC limit 1
+  </select>
+
+  <select id="listTimelineThroughputStat" resultMap="throughputStatResult" >
+    select
+    *
+    from THROUGHPUT_STAT
+    where PIPELINE_ID=#{pipelineId} and TYPE=#{type} and <![CDATA[ END_TIME>= #{start} and END_TIME <= #{end}]]>
+    ORDER BY END_TIME DESC,ID DESC
+  </select>
+</mapper>

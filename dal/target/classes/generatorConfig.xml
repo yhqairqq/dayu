@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 请替换本地jar路径 此文件不要上传 -->
+    <classPathEntry location="/Users/YHQ/maven_local2/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>
+    <classPathEntry  location="/Users/YHQ/maven_local2/com/weidai/mybatisplugin/1.1.3/mybatisplugin-1.1.3.jar"/>
+
+
+    <!--<classPathEntry-->
+            <!--location="/Users/cgw/.m2/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>-->
+    <!--<classPathEntry location="/Users/cgw/.m2/repository/com/weidai/mybatisplugin/1.1.3/mybatisplugin-1.1.3.jar"/>-->
+
+    <!-- mvn mybatis-generator:generate -->
+    <context id="MySQL" targetRuntime="com.happy.mybatis.IntrospectedTableMyBatis3ImplExt">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="suppressAllComments" value="true"/>
+        <property name="useActualColumnNames" value="false"/>
+        <!-- 不需要在mapper.xml中声明 jdbcType -->
+        <property name="suppressColumnType" value="true"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <!-- 配置插件 -->
+        <!--<plugin type="com.weidai.mybatis.MysqlPaginationPlugin"/>-->
+        <plugin type="com.happy.mybatis.MysqlClientGeneratorPlugin"/>
+
+        <commentGenerator type="com.happy.mybatis.generator.CNCommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 生成作者，实际开发时请自行更改 -->
+            <property name="author" value="Yanghq"/>
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.20.100.126:3306/hive?characterEncoding=utf8" userId="WD33601"
+                        password="Bigdatacenter@123">
+        </jdbcConnection>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.16.56.9:3306/otter?characterEncoding=utf8" userId="root"
+                        password="123456">
+        </jdbcConnection>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.20.40:3306/dams?characterEncoding=utf8" userId="devdams"
+                        password="DEVdams123!">
+        </jdbcConnection>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.20.100.126:3306/interface?characterEncoding=utf8" userId="uatinterface"
+                        password="UATinterface123!">
+        </jdbcConnection>-->
+        <!--connectionURL="jdbc:mysql://192.168.20.40:3306/oxen" userId="devoxen" password="DEVoxen123!">-->
+        <javaTypeResolver type="com.happy.mybatis.generator.resolver.CoustomJavaTypeResolver">
+            <property name="forceBigDecimals" value="false"/>
+            <property name="jdbcType.TINYINT" value="java.lang.Integer"/>
+            <property name="jdbcType.SMALLINT" value="java.lang.Integer"/>
+        </javaTypeResolver>
+        <!-- 配置model生成位置 -->
+        <javaModelGenerator targetPackage="com.caicai.ottx.dal.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 配置sqlmap生成位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 配置mapper接口生成位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.caicai.ottx.dal.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <table schema="otter" tableName="tag" domainObjectName="TagDO">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="otter" tableName="tag_channel_relation" domainObjectName="TagChannelRelationDO">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <!--<table schema="otter" tableName="autokeeper_cluster" domainObjectName="AutoKeeperClusterDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+       <!--<table schema="otter" tableName="canal" domainObjectName="CanalDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="column_pair" domainObjectName="DataColumnPairDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="column_pair_group" domainObjectName="DataColumnPairGroupDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="data_matrix" domainObjectName="DataMatrixDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="data_media" domainObjectName="DataMediaDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="data_media_pair" domainObjectName="DataMediaPairDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="data_media_source" domainObjectName="DataMediaSourceDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="delay_stat" domainObjectName="DelayStatDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="log_record" domainObjectName="LogRecordDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="meta_history" domainObjectName="MetaHistoryDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="meta_snapshot" domainObjectName="MetaSnapshot">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="node" domainObjectName="NodeDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="pipeline" domainObjectName="PipelineDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="pipeline_node_relation" domainObjectName="PipelineNodeRelationDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="system_parameter" domainObjectName="SystemParameterDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="table_history_stat" domainObjectName="TableHistoryStatDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="table_stat" domainObjectName="TableStatDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="otter" tableName="throughput_stat" domainObjectName="ThroughputStatDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
