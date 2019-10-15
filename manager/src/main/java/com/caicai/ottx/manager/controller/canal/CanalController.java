@@ -6,12 +6,14 @@ import com.alibaba.otter.manager.biz.common.exceptions.RepeatConfigureException;
 import com.alibaba.otter.manager.web.common.model.SeniorCanal;
 import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.caicai.ottx.common.ApiResult;
+import com.caicai.ottx.common.utils.BeanUtils;
 import com.caicai.ottx.common.utils.EnumBeanUtils;
 import com.caicai.ottx.common.vo.PageResult;
 import com.caicai.ottx.manager.controller.canal.form.CanalForm;
 import com.caicai.ottx.service.config.canal.CanalService;
 import com.caicai.ottx.service.config.pipeline.PipelineService;
 import com.github.pagehelper.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +29,7 @@ import java.util.*;
  */
 @RequestMapping("/canal")
 @RestController
+@Slf4j
 public class CanalController {
     @Autowired
     private CanalService canalService;
@@ -34,28 +37,33 @@ public class CanalController {
     private PipelineService pipelineService;
     @RequestMapping(value = "/getByPage",method = RequestMethod.POST)
     public ApiResult<PageResult> getByPage(@RequestBody CanalForm canalForm){
-        Map<String, Object> condition = new HashMap<String, Object>();
-        condition.put("current", canalForm.getCurrentPage());
-        condition.put("pageSize", canalForm.getPageSize());
-        List<Canal> canals = canalService.listByCondition(condition);
-        List<SeniorCanal> seniorCanals = new ArrayList<SeniorCanal>();
+        try{
+            Map<String, Object> condition = BeanUtils.objectToMap(canalForm);
+            List<Canal> canals = canalService.listByCondition(condition);
+            List<SeniorCanal> seniorCanals = new ArrayList<SeniorCanal>();
 
-        for (Canal canal : canals) {
-            SeniorCanal seniorCanal = new SeniorCanal();
-            seniorCanal.setId(canal.getId());
-            seniorCanal.setName(canal.getName());
-            seniorCanal.setStatus(canal.getStatus());
-            seniorCanal.setDesc(canal.getDesc());
-            seniorCanal.setCanalParameter(canal.getCanalParameter());
-            seniorCanal.setGmtCreate(canal.getGmtCreate());
-            seniorCanal.setGmtModified(canal.getGmtModified());
+            for (Canal canal : canals) {
+                SeniorCanal seniorCanal = new SeniorCanal();
+                seniorCanal.setId(canal.getId());
+                seniorCanal.setName(canal.getName());
+                seniorCanal.setStatus(canal.getStatus());
+                seniorCanal.setDesc(canal.getDesc());
+                seniorCanal.setCanalParameter(canal.getCanalParameter());
+                seniorCanal.setGmtCreate(canal.getGmtCreate());
+                seniorCanal.setGmtModified(canal.getGmtModified());
 
-            List<Pipeline> pipelines = pipelineService.listByDestinationWithoutOther(canal.getName());
-            seniorCanal.setPipelines(pipelines);
-            seniorCanal.setUsed(!pipelines.isEmpty());
-            seniorCanals.add(seniorCanal);
+                List<Pipeline> pipelines = pipelineService.listByDestinationWithoutOther(canal.getName());
+                seniorCanal.setPipelines(pipelines);
+                seniorCanal.setUsed(!pipelines.isEmpty());
+                seniorCanals.add(seniorCanal);
+            }
+            return ApiResult.success(new PageResult(seniorCanals,(Page)canals));
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error(e.getMessage());
+            return  ApiResult.failed(e.getMessage());
         }
-        return ApiResult.success(new PageResult(seniorCanals,(Page)canals));
     }
 
     @RequestMapping(value = "/getAll",method = RequestMethod.POST)

@@ -183,7 +183,7 @@ public class DataMediaSourceServiceImpl implements DataMediaSourceService{
 
     @Override
     public List<DataMediaSource> listByCondition(Map condition) {
-        PageHelper.startPage((int)condition.get("current"),(int)condition.get("pageSize"));
+        PageHelper.startPage((int)condition.get("currentPage"),(int)condition.get("pageSize"));
         List<DataMediaSource> dataMediaSources = new ArrayList<DataMediaSource>();
         try {
             List<DataMediaSourceDO> dataMediaSourceDos = sqlSession.selectList("listDataMediaSources",condition);

@@ -11,6 +11,7 @@ import com.caicai.ottx.service.config.datamedia.DataMediaService;
 import com.caicai.ottx.service.config.datamediapair.DataMediaPairService;
 import com.caicai.ottx.service.config.datamediasource.DataMediaSourceService;
 import com.caicai.ottx.service.statistics.table.TableStatService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
  */
 @RequestMapping(value = "/mediapair")
 @RestController
+@Slf4j
 public class MediaPairController {
     @Autowired
     private DataMediaPairService dataMediaPairService;
@@ -85,76 +87,110 @@ public class MediaPairController {
             return ApiResult.failed(e.getMessage());
         }
     }
-
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public ApiResult<String> addMediaPair(@RequestBody MediaPairForm mediaPairForm){
         try{
-            List<String> sourceDataMedia = mediaPairForm.getSourceDataMedia();
-            List<String> targetDataMedia = mediaPairForm.getTargetDataMedia();
-            sourceDataMedia= !CollectionUtils.isEmpty(sourceDataMedia)?
-                    sourceDataMedia.stream().filter(item-> !StringUtils.isEmpty(item)).collect(Collectors.toList())
-                    :sourceDataMedia;
-            String sourceSchema = sourceDataMedia.get(0).split("\\.")[0];
-            targetDataMedia= !CollectionUtils.isEmpty(targetDataMedia)?
-                    targetDataMedia.stream().filter(item-> !StringUtils.isEmpty(item)).collect(Collectors.toList())
-                    :targetDataMedia;
-            String targetSchema = targetDataMedia.size()>0?targetDataMedia.get(0).split("\\.")[0]:"";
-            DataMediaSource source = dataMediaSourceService.findById(mediaPairForm.getSourceId());
-            DataMediaSource target = dataMediaSourceService.findById(mediaPairForm.getTargetId());
-            DataMedia sourceMedia = new DataMedia();
-            if(sourceDataMedia.size()  == 1){
-                String table = sourceDataMedia.get(0);
-                String values[] = table.split("\\.");
-                sourceMedia.setName(values[1]);
+            if(mediaPairForm.getSourceMediaId() !=0 && mediaPairForm.getTargetMediaId()!=0){
+                addMediaPairWithMediaPattern(mediaPairForm);
             }else{
-                StringBuilder sourceNames = new StringBuilder();
-                for(String table:sourceDataMedia){
-                    String values[] = table.split("\\.");
-                    sourceNames.append(values[1]).append(";");
-                }
-                sourceMedia.setName(sourceNames.toString());
+                addMediaPairFull(mediaPairForm);
             }
-            sourceMedia.setMode(DataMedia.Mode.SINGLE);
-            sourceMedia.setNamespace(sourceSchema);
-
-            sourceMedia.setSource(source);
-            long sourceDataMediaId = dataMediaService.createReturnId(sourceMedia);
-            sourceMedia.setId(sourceDataMediaId);
-            DataMedia targetMedia = new DataMedia();
-            //两种情况 1、mysql->mysql  mysql->mq
-            //1
-            targetMedia.setName(".*");
-            targetMedia.setSource(target);
-            targetMedia.setTopic(mediaPairForm.getTopic());
-            targetMedia.setMode(DataMedia.Mode.SINGLE);
-            if(target.getType().isMysql()){
-                targetMedia.setNamespace(targetSchema);
-               if(sourceDataMedia.size() == 1){
-                   for(String table:targetDataMedia){
-                       String values[] = table.split("\\.");
-                       targetMedia.setName(values[1]);
-                       break;
-                   }
-               }
-
-            }else if(target.getType().isRocketMq() ||target.getType().isKafka() ){
-                //如果目标为MQ  那么schema 和  source 一致
-                targetMedia.setNamespace(sourceSchema);
-            }
-            long targetDataMediaId = dataMediaService.createReturnId(targetMedia);
-            targetMedia.setId(targetDataMediaId);
-            DataMediaPair mediaPair = wrapper(mediaPairForm);
-            mediaPair.setPipelineId(mediaPairForm.getPipelineId());
-            mediaPair.setPushWeight(mediaPairForm.getPushWeight());
-            mediaPair.setColumnPairMode(ColumnPairMode.INCLUDE);
-            mediaPair.setSource(sourceMedia);
-            mediaPair.setTarget(targetMedia);
-            dataMediaPairService.createAndReturnId(mediaPair);
         }catch (Exception e){
+            log.error(e.getMessage());
             e.printStackTrace();
             return ApiResult.failed(e.getMessage());
         }
         return ApiResult.success("添加成功");
+    }
+
+    /**
+     * 复杂组装的插入
+     * @param mediaPairForm
+     * @return
+     */
+    private Long addMediaPairFull(MediaPairForm mediaPairForm){
+        List<String> sourceDataMedia = mediaPairForm.getSourceDataMedia();
+        List<String> targetDataMedia = mediaPairForm.getTargetDataMedia();
+        sourceDataMedia= !CollectionUtils.isEmpty(sourceDataMedia)?
+                sourceDataMedia.stream().filter(item-> !StringUtils.isEmpty(item)).collect(Collectors.toList())
+                :sourceDataMedia;
+        String sourceSchema = sourceDataMedia.get(0).split("\\.")[0];
+        targetDataMedia= !CollectionUtils.isEmpty(targetDataMedia)?
+                targetDataMedia.stream().filter(item-> !StringUtils.isEmpty(item)).collect(Collectors.toList())
+                :targetDataMedia;
+        String targetSchema = targetDataMedia.size()>0?targetDataMedia.get(0).split("\\.")[0]:"";
+        DataMediaSource source = dataMediaSourceService.findById(mediaPairForm.getSourceId());
+        DataMediaSource target = dataMediaSourceService.findById(mediaPairForm.getTargetId());
+        DataMedia sourceMedia = new DataMedia();
+        if(sourceDataMedia.size()  == 1){
+            String table = sourceDataMedia.get(0);
+            String values[] = table.split("\\.");
+            sourceMedia.setName(values[1]);
+        }else{
+            StringBuilder sourceNames = new StringBuilder();
+            for(String table:sourceDataMedia){
+                String values[] = table.split("\\.");
+                sourceNames.append(values[1]).append(";");
+            }
+            sourceMedia.setName(sourceNames.toString());
+        }
+        sourceMedia.setMode(DataMedia.Mode.SINGLE);
+        sourceMedia.setNamespace(sourceSchema);
+
+        sourceMedia.setSource(source);
+        long sourceDataMediaId = dataMediaService.createReturnId(sourceMedia);
+        sourceMedia.setId(sourceDataMediaId);
+        DataMedia targetMedia = new DataMedia();
+        //两种情况 1、mysql->mysql  mysql->mq
+        //1
+        targetMedia.setName(".*");
+        targetMedia.setSource(target);
+        targetMedia.setTopic(mediaPairForm.getTopic());
+        targetMedia.setMode(DataMedia.Mode.SINGLE);
+        if(target.getType().isMysql()){
+            targetMedia.setNamespace(targetSchema);
+            if(sourceDataMedia.size() == 1){
+                for(String table:targetDataMedia){
+                    String values[] = table.split("\\.");
+                    targetMedia.setName(values[1]);
+                    break;
+                }
+            }
+
+        }else if(target.getType().isRocketMq() ||target.getType().isKafka() ){
+            //如果目标为MQ  那么schema 和  source 一致
+            targetMedia.setNamespace(sourceSchema);
+        }
+        long targetDataMediaId = dataMediaService.createReturnId(targetMedia);
+        targetMedia.setId(targetDataMediaId);
+        DataMediaPair mediaPair = wrapper(mediaPairForm);
+        mediaPair.setPipelineId(mediaPairForm.getPipelineId());
+        mediaPair.setPushWeight(mediaPairForm.getPushWeight());
+        mediaPair.setColumnPairMode(ColumnPairMode.INCLUDE);
+        mediaPair.setSource(sourceMedia);
+        mediaPair.setTarget(targetMedia);
+        dataMediaPairService.createAndReturnId(mediaPair);
+        return mediaPair.getId();
+    }
+
+    /**
+     * 通过媒体sourceId 和 targetId
+     * @param mediaPairForm
+     * @return
+     */
+    private Long addMediaPairWithMediaPattern(MediaPairForm mediaPairForm){
+        DataMediaPair mediaPair = wrapper(mediaPairForm);
+        mediaPair.setPipelineId(mediaPairForm.getPipelineId());
+        mediaPair.setPushWeight(mediaPairForm.getPushWeight());
+        mediaPair.setColumnPairMode(ColumnPairMode.INCLUDE);
+        DataMedia sourceMedia = new DataMedia();
+        sourceMedia.setId(mediaPairForm.getSourceMediaId());
+        DataMedia targetMedia = new DataMedia();
+        targetMedia.setId(mediaPairForm.getTargetMediaId());
+        mediaPair.setSource(sourceMedia);
+        mediaPair.setTarget(targetMedia);
+        dataMediaPairService.createAndReturnId(mediaPair);
+        return mediaPair.getId();
     }
 
     @RequestMapping(value = "/remove",method = RequestMethod.POST)
@@ -172,6 +208,17 @@ public class MediaPairController {
     public ApiResult<String> update(@RequestBody MediaPairForm mediaPairForm){
         try{
             DataMediaPair dataMediaPair =   wrapper(mediaPairForm);
+            if(mediaPairForm.getSourceMediaId() != 0 && mediaPairForm.getTargetMediaId() != 0){
+                dataMediaPair.setPipelineId(mediaPairForm.getPipelineId());
+                dataMediaPair.setPushWeight(mediaPairForm.getPushWeight());
+                dataMediaPair.setColumnPairMode(ColumnPairMode.INCLUDE);
+                DataMedia sourceMedia = new DataMedia();
+                sourceMedia.setId(mediaPairForm.getSourceMediaId());
+                DataMedia targetMedia = new DataMedia();
+                targetMedia.setId(mediaPairForm.getTargetMediaId());
+                dataMediaPair.setSource(sourceMedia);
+                dataMediaPair.setTarget(targetMedia);
+            }
             dataMediaPair.setId(mediaPairForm.getId());
             dataMediaPairService.modify(dataMediaPair);
             return ApiResult.success("更新成功");
@@ -180,26 +227,22 @@ public class MediaPairController {
         }
 
     }
-
-
-
-
     private DataMediaPair wrapper(MediaPairForm mediaPairForm){
-        DataMediaPair dataMediaPair = new DataMediaPair();
-        // filter解析
-        ExtensionDataType filterType = ExtensionDataType.valueOf(mediaPairForm.getFilterType());
-        ExtensionData filterData = new ExtensionData();
-        filterData.setExtensionDataType(filterType);
-        if (filterType.isClazz()) {
-            filterData.setClazzPath(mediaPairForm.getFilterText());
-        } else if (filterType.isSource()) {
-            filterData.setSourceText(mediaPairForm.getFilterText());
-        }
-        dataMediaPair.setFilterData(filterData);
+            DataMediaPair dataMediaPair = new DataMediaPair();
+            // filter解析
+            ExtensionDataType filterType = ExtensionDataType.valueOf(mediaPairForm.getFilterType());
+            ExtensionData filterData = new ExtensionData();
+            filterData.setExtensionDataType(filterType);
+            if (filterType.isClazz()) {
+                filterData.setClazzPath(mediaPairForm.getFilterText());
+            } else if (filterType.isSource()) {
+                filterData.setSourceText(mediaPairForm.getFilterText());
+            }
+            dataMediaPair.setFilterData(filterData);
 
-        ExtensionData resolverData = new ExtensionData();
-        resolverData.setExtensionDataType(ExtensionDataType.CLAZZ);
-        dataMediaPair.setResolverData(resolverData);
-        return dataMediaPair;
+            ExtensionData resolverData = new ExtensionData();
+            resolverData.setExtensionDataType(ExtensionDataType.CLAZZ);
+            dataMediaPair.setResolverData(resolverData);
+            return dataMediaPair;
     }
 }

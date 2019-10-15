@@ -136,13 +136,16 @@ public class AsynRequestCache {
             analysisResult.setPlotCells(plotCells);
             Map<String, Object> otherResult = new HashMap<>();
             otherResult.put("totalRecord1", totalRecord1);
+            otherResult.put("avgRecordPerS",totalRecord1/24*3600);
             otherResult.put("totalSize1", totalSize1);
+            otherResult.put("avgSizePerS",totalRecord1/24*3600);
             otherResult.put("start", sdf.format(start));
             otherResult.put("end", sdf.format(end));
             otherResult.put("pipeline",pipeline);
             analysisResult.setOtherResult(otherResult);
             return analysisResult;
         } catch (Exception e) {
+            log.error(e.getMessage());
             e.printStackTrace();
             return null;
         }

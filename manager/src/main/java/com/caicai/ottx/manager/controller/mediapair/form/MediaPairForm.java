@@ -13,6 +13,8 @@ public class MediaPairForm extends BaseForm {
     private long pipelineId;
     private long channelId;
     private long sourceId;
+    private long sourceMediaId;
+    private long targetMediaId;
     private long id;
     private long targetId;
     private List<String> sourceDataMedia;

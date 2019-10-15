@@ -204,7 +204,7 @@ public class CanalServiceImpl implements CanalService {
 
     @Override
     public List<Canal> listByCondition(Map condition) {
-        PageHelper.startPage((int)condition.get("current"),(int)condition.get("pageSize"));
+        PageHelper.startPage((int)condition.get("currentPage"),(int)condition.get("pageSize"));
         List<CanalDO> canalDos = sqlSession.selectList("listCanals",condition);
                 //canalDao.listByCondition(condition);
         if (CollectionUtils.isEmpty(canalDos)) {

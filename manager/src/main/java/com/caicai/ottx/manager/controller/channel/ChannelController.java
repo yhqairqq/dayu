@@ -9,6 +9,7 @@ import com.alibaba.otter.shared.common.model.config.data.DataMediaPair;
 import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.alibaba.otter.shared.common.utils.cmd.Exec;
 import com.caicai.ottx.common.ApiResult;
+import com.caicai.ottx.common.utils.BeanUtils;
 import com.caicai.ottx.common.utils.EnumBeanUtils;
 import com.caicai.ottx.common.vo.PageResult;
 import com.caicai.ottx.manager.controller.channel.form.ChannelForm;
@@ -27,6 +28,7 @@ import com.caicai.ottx.service.statistics.stage.ProcessStatService;
 import com.caicai.ottx.service.utils.ChannelDataxJobGenerator;
 import com.github.pagehelper.Page;
 import com.ibatis.common.jdbc.SimpleDataSource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +45,7 @@ import java.util.*;
 
 @RequestMapping("/channel")
 @RestController
+@Slf4j
 public class ChannelController {
 
     @Autowired
@@ -70,39 +73,42 @@ public class ChannelController {
 
     @RequestMapping(value = "/getByPage",method = RequestMethod.POST)
     public ApiResult<PageResult> getByPage(@RequestBody ChannelForm channelForm){
-        Map<String, Object> condition = new HashMap<String, Object>();
-        condition.put("current", channelForm.getCurrentPage());
-        condition.put("pageSize", channelForm.getPageSize());
-        List<Channel>  channels = channelService.listByConditionWithoutColumn(condition);
-        List<SeniorChannel> seniorChannels = new ArrayList<SeniorChannel>();
-        if(CollectionUtils.isEmpty(channels)){
-            return ApiResult.success(new PageResult(null,new Page()));
-        }
-        for (Channel channel : channels) {
-            boolean processEmpty = false;
-            List<Pipeline> pipelines = channel.getPipelines();
-            for (Pipeline pipeline : pipelines) {
-                if (processStatService.listRealtimeProcessStat(channel.getId(), pipeline.getId()).isEmpty()) {
-                    processEmpty = true;
-                }
+        try{
+            Map<String, Object> condition = BeanUtils.objectToMap(channelForm);
+            List<Channel>  channels = channelService.listByConditionWithoutColumn(condition);
+            List<SeniorChannel> seniorChannels = new ArrayList<SeniorChannel>();
+            if(CollectionUtils.isEmpty(channels)){
+                return ApiResult.success(new PageResult(null,new Page()));
             }
-            SeniorChannel seniorChannel = new SeniorChannel();
-            seniorChannel.setId(channel.getId());
-            seniorChannel.setName(channel.getName());
-            seniorChannel.setParameters(channel.getParameters());
-            seniorChannel.setPipelines(channel.getPipelines());
-            seniorChannel.setStatus(channel.getStatus());
-            seniorChannel.setDescription(channel.getDescription());
-            seniorChannel.setGmtCreate(channel.getGmtCreate());
-            seniorChannel.setGmtModified(channel.getGmtModified());
-            seniorChannel.setProcessEmpty(processEmpty);
-            //获取tag
-            Tag tag = tagChannelRelationService.findByChannelId(channel.getId());
-            seniorChannel.setTag(tag);
-            seniorChannel.setReady(canReady(channel));
-            seniorChannels.add(seniorChannel);
+            for (Channel channel : channels) {
+                boolean processEmpty = false;
+                List<Pipeline> pipelines = channel.getPipelines();
+                for (Pipeline pipeline : pipelines) {
+                    if (processStatService.listRealtimeProcessStat(channel.getId(), pipeline.getId()).isEmpty()) {
+                        processEmpty = true;
+                    }
+                }
+                SeniorChannel seniorChannel = new SeniorChannel();
+                seniorChannel.setId(channel.getId());
+                seniorChannel.setName(channel.getName());
+                seniorChannel.setParameters(channel.getParameters());
+                seniorChannel.setPipelines(channel.getPipelines());
+                seniorChannel.setStatus(channel.getStatus());
+                seniorChannel.setDescription(channel.getDescription());
+                seniorChannel.setGmtCreate(channel.getGmtCreate());
+                seniorChannel.setGmtModified(channel.getGmtModified());
+                seniorChannel.setProcessEmpty(processEmpty);
+                //获取tag
+                Tag tag = tagChannelRelationService.findByChannelId(channel.getId());
+                seniorChannel.setTag(tag);
+                seniorChannel.setReady(canReady(channel));
+                seniorChannels.add(seniorChannel);
+            }
+            return ApiResult.success(new PageResult(seniorChannels,(Page)channels));
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return ApiResult.failed(e.getMessage());
         }
-        return ApiResult.success(new PageResult(seniorChannels,(Page)channels));
     }
 
     private boolean canReady(Channel channel){
@@ -227,8 +233,6 @@ public class ChannelController {
               e.printStackTrace();
               return ApiResult.failed(e.getMessage());
           }
-
-
         }else if ("full".equalsIgnoreCase(channelForm.getStart())){
             Date now = new Date();
             //历史记录同步

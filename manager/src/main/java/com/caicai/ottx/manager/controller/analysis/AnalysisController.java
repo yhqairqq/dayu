@@ -26,6 +26,7 @@ import com.caicai.ottx.service.statistics.table.TableStatService;
 import com.caicai.ottx.service.statistics.table.param.*;
 import com.caicai.ottx.service.statistics.throughput.ThroughputStatService;
 import com.github.pagehelper.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,14 +36,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by huaseng on 2019/9/2.
  */
 @RequestMapping("/analysis")
 @RestController
+@Slf4j
 public class AnalysisController {
 
 
@@ -181,7 +181,9 @@ public class AnalysisController {
 
             Map<String,Object> otherResult = new HashMap<>();
             otherResult.put("totalRecord1",totalRecord1);
+            otherResult.put("avgRecordPerS",totalRecord1/24*3600);
             otherResult.put("totalSize1",totalSize1);
+            otherResult.put("avgSizePerS",totalRecord1/24*3600);
             otherResult.put("start", sdf.format(start));
             otherResult.put("end", sdf.format(end));
             analysisResult.setOtherResult(otherResult);
@@ -433,6 +435,7 @@ public class AnalysisController {
            }
            return ApiResult.success(result);
        }catch (Exception e){
+           log.error(e.getMessage());
            e.printStackTrace();
            return ApiResult.failed(e.getMessage());
        }

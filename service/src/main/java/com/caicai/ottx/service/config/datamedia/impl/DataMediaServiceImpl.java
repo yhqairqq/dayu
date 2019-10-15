@@ -98,7 +98,23 @@ public class DataMediaServiceImpl implements DataMediaService {
 
     @Override
     public void create(DataMedia dataMedia) {
-
+        Assert.assertNotNull(dataMedia);
+        try {
+          DataMediaDO dataMediaDo = modelToDo(dataMedia);
+            dataMediaDo.setId(0L);
+//            if (!dataMediaDao.checkUnique(dataMediaDo)) {
+//                String exceptionCause = "exist the same name dataMedia in the database.";
+//                logger.warn("WARN ## " + exceptionCause);
+//                throw new RepeatConfigureException(exceptionCause);
+//            }
+            dataMediaDOMapperExt.insertSelective(dataMediaDo);
+//            dataMediaDao.insert(dataMediaDo);
+        } catch (RepeatConfigureException rce) {
+            throw rce;
+        } catch (Exception e) {
+            log.error("ERROR ## create dataMedia has an exception!");
+            throw new ManagerException(e);
+        }
     }
 
     private DataMediaDO modelToDo(DataMedia dataMedia) {
@@ -128,17 +144,33 @@ public class DataMediaServiceImpl implements DataMediaService {
 
     @Override
     public void remove(Long identity) {
-
+        dataMediaDOMapperExt.deleteByPrimaryKey(identity);
     }
 
     @Override
-    public void modify(DataMedia entityObj) {
-
+    public void modify(DataMedia dataMedia) {
+        Assert.assertNotNull(dataMedia);
+        try {
+           DataMediaDO dataMediaDo = modelToDo(dataMedia);
+//            if (dataMediaDao.checkUnique(dataMediaDo)) {
+//                dataMediaDao.update(dataMediaDo);
+//            } else {
+//                String exceptionCause = "exist the same name dataMedia in the database.";
+//                logger.warn("WARN ## " + exceptionCause);
+//                throw new RepeatConfigureException(exceptionCause);
+//            }
+            dataMediaDOMapperExt.updateByPrimaryKeySelective(dataMediaDo);
+        } catch (RepeatConfigureException rce) {
+            throw rce;
+        } catch (Exception e) {
+            log.error("ERROR ## modify dataMedia has an exception!");
+            throw new ManagerException(e);
+        }
     }
 
     @Override
     public DataMedia findById(Long identity) {
-        return null;
+        return doToModel(dataMediaDOMapperExt.selectByPrimaryKey(identity));
     }
 
     @Override
@@ -208,12 +240,12 @@ public class DataMediaServiceImpl implements DataMediaService {
 
     @Override
     public List<DataMedia> listAll() {
-        return null;
+        return listByIds();
     }
 
     @Override
     public List<DataMedia> listByCondition(Map condition) {
-        PageHelper.startPage((int)condition.get("current"),(int)condition.get("pageSize"));
+        PageHelper.startPage((int)condition.get("currentPage"),(int)condition.get("pageSize"));
         List<DataMedia> dataMedias = new ArrayList<DataMedia>();
         try {
             List<DataMediaDO> dataMediaDos = sqlSession.selectList("listDataMedias",condition);

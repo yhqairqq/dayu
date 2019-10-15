@@ -240,9 +240,7 @@ public class DataMediaPairServiceImpl implements DataMediaPairService{
 
     @Override
     public void modify(DataMediaPair dataMediaPair) {
-        DataMediaPairDO dataMediaPairDo = new DataMediaPairDO();
-        dataMediaPairDo.setId(dataMediaPair.getId());
-        dataMediaPairDo.setFilter(JsonUtils.marshalToString(dataMediaPair.getFilterData()));
+        DataMediaPairDO dataMediaPairDo =   modelToDo(dataMediaPair);
         dataMediaPairDOMapperExt.updateByPrimaryKeySelective(dataMediaPairDo);
     }
 

@@ -319,7 +319,7 @@ public class ChannelServiceImpl implements ChannelService{
 
     @Override
     public Page<Channel> listByConditionWithoutColumn(Map condition) {
-        PageHelper.startPage((int)condition.get("current"),(int)condition.get("pageSize"));
+        PageHelper.startPage((int)condition.get("currentPage"),(int)condition.get("pageSize"));
         List<ChannelDO> channelDOs = sqlSession.selectList("listChannelByCondtion",condition);
         if(CollectionUtils.isEmpty(channelDOs)){
             log.debug("DEBUG ## couldn't query any channel by the condition:" + JsonUtils.marshalToString(condition));
