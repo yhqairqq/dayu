@@ -200,6 +200,7 @@ public class ChannelController {
     @RequestMapping(value ="/doStatus",method = RequestMethod.POST)
     public ApiResult<String> doStatus(@RequestBody ChannelForm channelForm){
         Channel channel =  channelService.findById(channelForm.getId());
+        List<Exec.Result> resultList = null;
         //处理位点
         if("new".equalsIgnoreCase(channelForm.getStart())){
             if(!CollectionUtils.isEmpty(channel.getPipelines())){
@@ -236,7 +237,7 @@ public class ChannelController {
         }else if ("full".equalsIgnoreCase(channelForm.getStart())){
             Date now = new Date();
             //历史记录同步
-            List<Exec.Result> resultList =   channelDataxJobGenerator.processTask(channel);
+            resultList =  channelDataxJobGenerator.processTask(channel);
             //最新位点同步
             for(Exec.Result result : resultList){
                 if(result.getExitCode() != 0){
@@ -275,7 +276,7 @@ public class ChannelController {
         }else if("stop".equals(channelForm.getStatus())){
             channelService.stopChannel(channelForm.getId());
         }
-        return ApiResult.success("操作成功");
+        return ApiResult.success(CollectionUtils.isEmpty(resultList)?"":resultList.get(0).getStdout());
     }
     /**
      * 用户channel的配置强制推送

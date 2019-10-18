@@ -13,6 +13,9 @@
       <if test="type != null and type != ''">
         AND  `properties`  LIKE  CONCAT('%',#{type},'%')
       </if>
+      <if test="url != null and url != ''">
+        AND  `properties`  LIKE  CONCAT('%',#{url},'%')
+      </if>
     </where>
     order BY  ID DESC
   </select>

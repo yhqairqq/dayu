@@ -77,6 +77,7 @@ public class AsynRequestCache {
         executorService.shutdown();
     }
 
+
     private AnalysisResult fetchAnalysisThroughputHistory(Pipeline pipeline) {
         try {
             Date end = null;
@@ -85,7 +86,7 @@ public class AsynRequestCache {
             Date currentDate = new Date();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(currentDate);
-            calendar.add(Calendar.DAY_OF_WEEK, -1);
+            calendar.add(Calendar.HOUR_OF_DAY, -3);
             String startTime = sdf.format(calendar.getTime());
             String endTime = sdf.format(currentDate);
             if (StringUtils.isEmpty(startTime) || StringUtils.isEmpty(endTime)) {
@@ -132,6 +133,7 @@ public class AsynRequestCache {
                 plotCell.setSize(throughputInfo.getSize());
                 plotCell.setTime(key);
                 plotCells.add(plotCell);
+                plotCell.setPiplineName(pipeline.getName());
             }
             analysisResult.setPlotCells(plotCells);
             Map<String, Object> otherResult = new HashMap<>();

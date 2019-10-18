@@ -37,19 +37,19 @@ import java.util.Properties;
 @ComponentScan(basePackages = "com.caicai.ottx")
 @MapperScan(basePackages = {"com.caicai.ottx.dal.mapper"})
 @EnableWebMvc
-public class OtterManagerLauncher extends SpringBootServletInitializer {
+public class DayuManagerLauncher extends SpringBootServletInitializer {
 
-    private static final Logger logger      = LoggerFactory.getLogger(OtterManagerLauncher.class);
+    private static final Logger logger      = LoggerFactory.getLogger(DayuManagerLauncher.class);
     private static final String CLASSPATH_URL_PREFIX = "classpath:";
 
     public static void main(String[] args) throws Throwable {
 
         try {
-            String conf = System.getProperty("otter.conf", "classpath:otter.properties");
+            String conf = System.getProperty("dayu.conf", "classpath:dayu.properties");
             Properties properties = new Properties();
             if (conf.startsWith(CLASSPATH_URL_PREFIX)) {
                 conf = StringUtils.substringAfter(conf, CLASSPATH_URL_PREFIX);
-                properties.load(OtterManagerLauncher.class.getClassLoader().getResourceAsStream(conf));
+                properties.load(DayuManagerLauncher.class.getClassLoader().getResourceAsStream(conf));
             } else {
                 properties.load(new FileInputStream(conf));
             }
@@ -82,11 +82,11 @@ public class OtterManagerLauncher extends SpringBootServletInitializer {
             System.exit(0);
         }
 
-        SpringApplication.run(OtterManagerLauncher.class, args);
+        SpringApplication.run(DayuManagerLauncher.class, args);
     }
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(OtterManagerLauncher.class);
+        return application.sources(DayuManagerLauncher.class);
     }
     private static void mergeProps(Properties props) {
         for (Entry<Object, Object> entry : props.entrySet()) {

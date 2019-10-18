@@ -13,4 +13,5 @@ public class PlotCell {
     private long quantity;
     private double avgDelayNumber;
     private double avgDelayTime;
+    private String piplineName;  //链路名称
 }

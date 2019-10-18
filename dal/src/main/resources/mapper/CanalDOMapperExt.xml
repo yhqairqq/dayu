@@ -10,6 +10,9 @@
       <if test="name != null and name != ''">
         AND  `NAME`  LIKE  CONCAT('%',#{name},'%')
       </if>
+      <if test="url != null and url != ''">
+        AND  `PARAMETERS`  LIKE  CONCAT('%',#{url},'%')
+      </if>
     </where>
     ORDER BY  ID DESC
   </select>

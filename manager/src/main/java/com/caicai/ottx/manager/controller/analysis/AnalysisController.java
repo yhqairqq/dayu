@@ -125,7 +125,7 @@ public class AnalysisController {
             Date currentDate = new Date();
             Calendar calendar =  Calendar.getInstance();
             calendar.setTime(currentDate);
-            calendar.add(Calendar.DAY_OF_WEEK, -1);
+            calendar.add(Calendar.HOUR_OF_DAY, -3);
             String startTime = sdf.format(calendar.getTime());
             String endTime = sdf.format(currentDate);
             if (StringUtils.isEmpty(startTime) || StringUtils.isEmpty(endTime)) {
@@ -208,7 +208,7 @@ public class AnalysisController {
             Date currentDate = new Date();
             Calendar calendar =  Calendar.getInstance();
             calendar.setTime(currentDate);
-            calendar.add(Calendar.DAY_OF_WEEK, -1);
+            calendar.add(Calendar.HOUR_OF_DAY, -3);
             String startTime = sdf.format(calendar.getTime());
             String endTime = sdf.format(currentDate);
             if (StringUtils.isEmpty(startTime) || StringUtils.isEmpty(endTime)) {
@@ -316,7 +316,7 @@ public class AnalysisController {
             Date currentDate = new Date();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(currentDate);
-            calendar.add(Calendar.DAY_OF_WEEK, -1);
+            calendar.add(Calendar.HOUR_OF_DAY, -3);
             String startTime = sdf.format(calendar.getTime());
             String endTime = sdf.format(currentDate);
             if (StringUtils.isEmpty(startTime) || StringUtils.isEmpty(endTime)) {
@@ -369,21 +369,27 @@ public class AnalysisController {
             List<PlotCellBehavior> plotCellBehaviors = new ArrayList<>();
             for(long key:behaviourHistoryInfos.keySet()){
                 BehaviorHistoryInfo behaviorHistoryInfo = behaviourHistoryInfos.get(key);
-                PlotCellBehavior plotCellBehavior = new PlotCellBehavior();
+
                 if(behaviorHistoryInfo.getInsertNumber() > 0){
+                    PlotCellBehavior plotCellBehavior = new PlotCellBehavior();
                     plotCellBehavior.setTime(key);
                     plotCellBehavior.setType("insert");
                     plotCellBehavior.setNum(behaviorHistoryInfo.getInsertNumber());
-                }else if(behaviorHistoryInfo.getUpdateNumber() > 0){
+                    plotCellBehaviors.add(plotCellBehavior);
+                }if(behaviorHistoryInfo.getUpdateNumber() > 0){
+                    PlotCellBehavior plotCellBehavior = new PlotCellBehavior();
                     plotCellBehavior.setTime(key);
                     plotCellBehavior.setType("update");
                     plotCellBehavior.setNum(behaviorHistoryInfo.getUpdateNumber());
-                }else if(behaviorHistoryInfo.getDeleteNumber() > 0){
+                    plotCellBehaviors.add(plotCellBehavior);
+                }if(behaviorHistoryInfo.getDeleteNumber() > 0){
+                    PlotCellBehavior plotCellBehavior = new PlotCellBehavior();
                     plotCellBehavior.setTime(key);
                     plotCellBehavior.setType("delete");
                     plotCellBehavior.setNum(behaviorHistoryInfo.getDeleteNumber());
+                    plotCellBehaviors.add(plotCellBehavior);
                 }
-                plotCellBehaviors.add(plotCellBehavior);
+
             }
             analysisResult.setPlotCells(plotCellBehaviors);
             otherResult.put("start", sdf.format(start));

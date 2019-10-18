@@ -40,13 +40,13 @@ public class MetaController {
     @RequestMapping(value = "/table/list",method = RequestMethod.POST)
     public ApiResult<List<String>> listTables(@RequestBody MetaForm metaForm){
         DataMediaSource dataMediaSource = dataMediaSourceService.findById(metaForm.getDataMediaSourceId());
-        return  cmdMysqlConnection(String.format("show tables from %s",metaForm.getSchema()),dataMediaSource);
+        return  cmdMysqlConnection(String.format("show tables from `%s`",metaForm.getSchema()),dataMediaSource);
     }
 
     @RequestMapping(value = "/topic/list",method = RequestMethod.POST)
     public ApiResult<List<String>> listTopics(@RequestBody MetaForm metaForm){
         DataMediaSource dataMediaSource = dataMediaSourceService.findById(metaForm.getDataMediaSourceId());
-        return  cmdMysqlConnection(String.format("show tables from %s",metaForm.getSchema()),dataMediaSource);
+        return  cmdMysqlConnection(String.format("show tables from `%s`",metaForm.getSchema()),dataMediaSource);
     }
 
 

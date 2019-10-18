@@ -9,4 +9,5 @@ import lombok.Data;
 public class SyncForm {
     private String json;
     private String name;
+    private long mediaPairid;
 }

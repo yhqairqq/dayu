@@ -5,6 +5,25 @@
 
   <select id="listDataMedias" resultMap="BaseResultMap">
     SELECT * from data_media
+    <where>
+      1=1
+      <if test="namespace != null and namespace != ''">
+       AND  NAMESPACE  LIKE  CONCAT('%',#{namespace},'%')
+      </if>
+      <if test="name != null and name != ''">
+        AND  `NAME`  LIKE CONCAT('%',#{name},'%')
+      </if>
+
+      <if test="sourceId != 0">
+        AND  DATA_MEDIA_SOURCE_ID = #{sourceId}
+      </if>
+      <if test="topic != null and topic != ''">
+        AND  PROPERTIES LIKE  CONCAT('%',#{topic},'%')
+      </if>
+      <if test="type != null and type != ''">
+        AND  PROPERTIES LIKE CONCAT('%',#{type},'%')
+      </if>
+    </where>
     ORDER  BY  ID DESC
   </select>
 

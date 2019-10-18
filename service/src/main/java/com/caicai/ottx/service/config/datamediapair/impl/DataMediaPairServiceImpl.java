@@ -64,69 +64,7 @@ public class DataMediaPairServiceImpl implements DataMediaPairService{
         }
         return dataMediaPairs;
     }
-    private List<DataMediaPair> doToModel(List<DataMediaPairDO> dataMediaPairDos) {
-        List<Long> dataMediaPairIds = new ArrayList<Long>();
-        for (DataMediaPairDO dataMediaPairDo : dataMediaPairDos) {
-            dataMediaPairIds.add(dataMediaPairDo.getId());
-        }
-        Map<Long, List<ColumnPair>> columnPairMap = dataColumnPairService.listByDataMediaPairIds(dataMediaPairIds.toArray(new Long[dataMediaPairIds.size()]));
-        Map<Long, List<ColumnGroup>> columnPairGroupMap = dataColumnPairGroupService.listByDataMediaPairIds(dataMediaPairIds.toArray(new Long[dataMediaPairIds.size()]));
-        List<DataMediaPair> dataMediaPairs = new ArrayList<DataMediaPair>();
-        for (DataMediaPairDO dataMediaPairDo : dataMediaPairDos) {
-            List<ColumnPair> columnPairs = columnPairMap.get(dataMediaPairDo.getId()) == null ? new ArrayList<ColumnPair>() : columnPairMap.get(dataMediaPairDo.getId());
-            List<ColumnGroup> columnGroups = columnPairGroupMap.get(dataMediaPairDo.getId()) == null ? new ArrayList<ColumnGroup>() : columnPairGroupMap.get(dataMediaPairDo.getId());
-            dataMediaPairs.add(doToModel(dataMediaPairDo, columnPairs, columnGroups));
-        }
 
-        return dataMediaPairs;
-    }
-
-
-    private DataMediaPair doToModel(DataMediaPairDO dataMediaPairDo, List<ColumnPair> columnPairs,
-                                    List<ColumnGroup> columnGroups) {
-        DataMediaPair dataMediaPair = new DataMediaPair();
-        try {
-            dataMediaPair.setId(dataMediaPairDo.getId());
-            dataMediaPair.setPipelineId(dataMediaPairDo.getPipelineId());
-            dataMediaPair.setPullWeight(dataMediaPairDo.getPullWeight());
-            dataMediaPair.setPushWeight(dataMediaPairDo.getPushWeight());
-            if (org.apache.commons.lang.StringUtils.isNotBlank(dataMediaPairDo.getFilter())) {
-                dataMediaPair.setFilterData(JsonUtils.unmarshalFromString(dataMediaPairDo.getFilter(),
-                        ExtensionData.class));
-            }
-
-            if (org.apache.commons.lang.StringUtils.isNotBlank(dataMediaPairDo.getResolver())) {
-                dataMediaPair.setResolverData(JsonUtils.unmarshalFromString(dataMediaPairDo.getResolver(),
-                        ExtensionData.class));
-            }
-            dataMediaPair.setColumnPairs(columnPairs);
-            dataMediaPair.setColumnGroups(columnGroups);
-            dataMediaPair.setColumnPairMode(dataMediaPairDo.getColumnPairMode());
-            dataMediaPair.setGmtCreate(dataMediaPairDo.getGmtCreate());
-            dataMediaPair.setGmtModified(dataMediaPairDo.getGmtModified());
-
-            // 组装DataMedia
-            List<DataMedia> dataMedias = dataMediaService.listByIds(dataMediaPairDo.getSourceDataMediaId(),
-                    dataMediaPairDo.getTargetDataMediaId());
-            if (null == dataMedias || dataMedias.size() != 2) {
-                // 抛出异常
-                return dataMediaPair;
-            }
-
-            for (DataMedia dataMedia : dataMedias) {
-                if (dataMedia.getId().equals(dataMediaPairDo.getSourceDataMediaId())) {
-                    dataMediaPair.setSource(dataMedia);
-                } else if (dataMedia.getId().equals(dataMediaPairDo.getTargetDataMediaId())) {
-                    dataMediaPair.setTarget(dataMedia);
-                }
-            }
-        } catch (Exception e) {
-            log.error("ERROR ## change the dataMediaPair Do to Model has an exception", e);
-            throw new ManagerException(e);
-        }
-
-        return dataMediaPair;
-    }
 
     @Override
     public List<DataMediaPair> listByPipelineIdWithoutColumn(Long pipelineId) {
@@ -200,6 +138,69 @@ public class DataMediaPairServiceImpl implements DataMediaPairService{
             log.error("ERROR ## create dataMediaPair has an exception!", e);
             throw new ManagerException(e);
         }
+    }
+    private List<DataMediaPair> doToModel(List<DataMediaPairDO> dataMediaPairDos) {
+        List<Long> dataMediaPairIds = new ArrayList<Long>();
+        for (DataMediaPairDO dataMediaPairDo : dataMediaPairDos) {
+            dataMediaPairIds.add(dataMediaPairDo.getId());
+        }
+        Map<Long, List<ColumnPair>> columnPairMap = dataColumnPairService.listByDataMediaPairIds(dataMediaPairIds.toArray(new Long[dataMediaPairIds.size()]));
+        Map<Long, List<ColumnGroup>> columnPairGroupMap = dataColumnPairGroupService.listByDataMediaPairIds(dataMediaPairIds.toArray(new Long[dataMediaPairIds.size()]));
+        List<DataMediaPair> dataMediaPairs = new ArrayList<DataMediaPair>();
+        for (DataMediaPairDO dataMediaPairDo : dataMediaPairDos) {
+            List<ColumnPair> columnPairs = columnPairMap.get(dataMediaPairDo.getId()) == null ? new ArrayList<ColumnPair>() : columnPairMap.get(dataMediaPairDo.getId());
+            List<ColumnGroup> columnGroups = columnPairGroupMap.get(dataMediaPairDo.getId()) == null ? new ArrayList<ColumnGroup>() : columnPairGroupMap.get(dataMediaPairDo.getId());
+            dataMediaPairs.add(doToModel(dataMediaPairDo, columnPairs, columnGroups));
+        }
+
+        return dataMediaPairs;
+    }
+
+
+    private DataMediaPair doToModel(DataMediaPairDO dataMediaPairDo, List<ColumnPair> columnPairs,
+                                    List<ColumnGroup> columnGroups) {
+        DataMediaPair dataMediaPair = new DataMediaPair();
+        try {
+            dataMediaPair.setId(dataMediaPairDo.getId());
+            dataMediaPair.setPipelineId(dataMediaPairDo.getPipelineId());
+            dataMediaPair.setPullWeight(dataMediaPairDo.getPullWeight());
+            dataMediaPair.setPushWeight(dataMediaPairDo.getPushWeight());
+            if (org.apache.commons.lang.StringUtils.isNotBlank(dataMediaPairDo.getFilter())) {
+                dataMediaPair.setFilterData(JsonUtils.unmarshalFromString(dataMediaPairDo.getFilter(),
+                        ExtensionData.class));
+            }
+
+            if (org.apache.commons.lang.StringUtils.isNotBlank(dataMediaPairDo.getResolver())) {
+                dataMediaPair.setResolverData(JsonUtils.unmarshalFromString(dataMediaPairDo.getResolver(),
+                        ExtensionData.class));
+            }
+            dataMediaPair.setColumnPairs(columnPairs);
+            dataMediaPair.setColumnGroups(columnGroups);
+            dataMediaPair.setColumnPairMode(dataMediaPairDo.getColumnPairMode());
+            dataMediaPair.setGmtCreate(dataMediaPairDo.getGmtCreate());
+            dataMediaPair.setGmtModified(dataMediaPairDo.getGmtModified());
+
+            // 组装DataMedia
+            List<DataMedia> dataMedias = dataMediaService.listByIds(dataMediaPairDo.getSourceDataMediaId(),
+                    dataMediaPairDo.getTargetDataMediaId());
+            if (null == dataMedias || dataMedias.size() != 2) {
+                // 抛出异常
+                return dataMediaPair;
+            }
+
+            for (DataMedia dataMedia : dataMedias) {
+                if (dataMedia.getId().equals(dataMediaPairDo.getSourceDataMediaId())) {
+                    dataMediaPair.setSource(dataMedia);
+                } else if (dataMedia.getId().equals(dataMediaPairDo.getTargetDataMediaId())) {
+                    dataMediaPair.setTarget(dataMedia);
+                }
+            }
+        } catch (Exception e) {
+            log.error("ERROR ## change the dataMediaPair Do to Model has an exception", e);
+            throw new ManagerException(e);
+        }
+
+        return dataMediaPair;
     }
     private DataMediaPairDO modelToDo(DataMediaPair dataMediaPair) {
         DataMediaPairDO dataMediaPairDo = new DataMediaPairDO();

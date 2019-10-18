@@ -130,5 +130,16 @@ public class MediaController {
         }
     }
 
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public ApiResult<String> remove(@RequestBody MediaForm mediaForm){
+        try{
+            dataMediaService.remove(mediaForm.getId());
+            return ApiResult.success("删除成功");
+        }catch (Exception e){
+            log.error(e.getMessage());
+            e.getMessage();
+            return ApiResult.failed(e.getMessage());
+        }
 
+    }
 }

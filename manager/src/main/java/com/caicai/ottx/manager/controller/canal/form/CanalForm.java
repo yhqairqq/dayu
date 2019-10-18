@@ -41,4 +41,5 @@ public class CanalForm extends BaseForm {
     private String blackFilter;
     private String desc;
     private String destinationName;
+    private String url;
 }

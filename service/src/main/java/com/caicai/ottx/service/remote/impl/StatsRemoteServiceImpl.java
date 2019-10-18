@@ -40,6 +40,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -183,6 +184,8 @@ public class StatsRemoteServiceImpl implements StatsRemoteService {
                     delay.setPipelineId(stat.getKey());
                     delay.setDelayTime(stat.getValue().getAvg());
                     delay.setDelayNumber(0L);
+                    delay.setGmtCreate(new Date());
+                    delay.setGmtModified(new Date());
                     delayStatService.createDelayStat(delay);
                 }
             }
