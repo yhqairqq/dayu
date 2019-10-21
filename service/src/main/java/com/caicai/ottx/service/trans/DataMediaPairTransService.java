@@ -11,6 +11,7 @@ import java.util.Map;
 public interface DataMediaPairTransService {
     void create(DataMediaPairTrans dataMediaPairTrans);
 
+
     void remove(Long canalId);
 
     void modify(DataMediaPairTrans dataMediaPairTrans);
@@ -26,4 +27,6 @@ public interface DataMediaPairTransService {
     int getCount(Map condition);
 
     List<DataMediaPairTrans> listByCondition(Map condition);
+
+    long createAndReturnId(DataMediaPairTrans dataMediaPairTrans);
 }

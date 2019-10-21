@@ -76,6 +76,13 @@ public class JobModuleWrapper {
         return this;
     }
 
+    public JobModuleWrapper setWriteModel(String writeModel){
+        jsonArray.getJSONObject(0)
+                .getJSONObject("writer")
+                .getJSONObject("parameter").replace("writeMode",writeModel);
+        return this;
+    }
+
     public JobModuleWrapper setTargteColumns(String[] columns){
         JSONArray column = jsonArray.getJSONObject(0)
                 .getJSONObject("writer")
@@ -94,7 +101,9 @@ public class JobModuleWrapper {
                 .getJSONArray("preSql");
         preSql.clear();
         StringBuilder sql = new StringBuilder();
-        sql.append("delete from ").append(table);
+        if(StringUtils.isNotBlank(table)){
+            sql.append("delete from ").append(table);
+        }
         preSql.add(sql.toString());
         return this;
     }

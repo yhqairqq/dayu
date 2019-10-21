@@ -9,6 +9,7 @@ import com.caicai.ottx.service.config.datamediapair.DataMediaPairService;
 import com.caicai.ottx.service.trans.DataMediaPairTransService;
 import com.caicai.ottx.service.trans.model.DataMediaPairTrans;
 import com.caicai.ottx.service.utils.ChannelDataxJobGenerator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,7 @@ import java.util.List;
  */
 @RequestMapping("/full")
 @RestController
+@Slf4j
 public class FullSyncController {
 
     private static final String BASE_DIR =   System.getProperty("user.dir");
@@ -67,8 +69,18 @@ public class FullSyncController {
         dataMediaPair.setId(dataMediaPairTrans.getId());
         dataMediaPair.setSource(dataMediaPairTrans.getSource());
         dataMediaPair.setTarget(dataMediaPairTrans.getTarget());
-        List<Exec.Result> resultList =  channelDataxJobGenerator.processTask(dataMediaPair);
-       return  ApiResult.success(resultList);
+        String requestId =  channelDataxJobGenerator.processTask(dataMediaPair,syncForm.getWriteMode());
+       return  ApiResult.success(requestId);
     }
 
+    @RequestMapping(value = "/syncCallback",method = RequestMethod.POST)
+    public ApiResult syncCallback(@RequestBody SyncForm syncForm){
+        try{
+            return ApiResult.success(channelDataxJobGenerator.asyncCallReqeust(syncForm.getRequestId()));
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error(e.getMessage());
+            return ApiResult.failed(e.getMessage());
+        }
+    }
 }

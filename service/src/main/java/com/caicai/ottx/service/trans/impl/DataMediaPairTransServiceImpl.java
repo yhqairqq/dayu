@@ -108,6 +108,13 @@ public class DataMediaPairTransServiceImpl implements DataMediaPairTransService 
         return page;
     }
 
+    @Override
+    public long createAndReturnId(DataMediaPairTrans dataMediaPairTrans) {
+        DataMediaPairTransDO dataMediaPairTransDO = modelToDo(dataMediaPairTrans) ;
+        dataMediaPairTransDOMapperExt.insertSelective(dataMediaPairTransDO);
+        return dataMediaPairTransDO.getId();
+    }
+
 
     private List<DataMediaPairTrans> doToModel(List<DataMediaPairTransDO> dataMediaPairTransDos) {
         List<Long> dataMediaPairTransIds = new ArrayList<Long>();

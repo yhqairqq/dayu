@@ -31,7 +31,7 @@ public class JobModule {
             "      \"writer\": {\n" +
             "        \"name\": \"mysqlwriter\",\n" +
             "        \"parameter\": {\n" +
-            "          \"writeMode\": \"insert\",\n" +
+                "      \"writeMode\": \"insert\",\n" +
             "          \"username\": \"realtime_db\",\n" +
             "          \"password\": \"95wO0e00HwZ93xno\",\n" +
             "          \"dateFormat\": \"YYYY-MM-dd hh:mm:ss\",\n" +

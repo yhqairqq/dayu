@@ -15,6 +15,11 @@ import com.alibaba.otter.shared.common.utils.cmd.Exec;
 import com.caicai.ottx.common.ApiResult;
 import com.caicai.ottx.common.CmdMysqlConnectionUtil;
 import com.caicai.ottx.common.exception.BizException;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -25,9 +30,8 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Created by huaseng on 2019/10/8.
@@ -38,17 +42,33 @@ public class ChannelDataxJobGenerator {
 
     private static final String BASE_DIR =   System.getProperty("user.dir");
 
-    private  List<JobModuleWrapper> createJobModule(Channel channel){
+    public static final Cache<String, Future<List<Exec.Result>>> cahceBuilder =
+            CacheBuilder.newBuilder().
+                    expireAfterWrite(1, TimeUnit.MINUTES)
+                    .expireAfterAccess(1,TimeUnit.MINUTES)
+                    .build();
+
+
+    private ExecutorCompletionService<List<Exec.Result>> completionService = new ExecutorCompletionService<List<Exec.Result>>(new ThreadPoolExecutor(
+            4,
+            4,
+            1,
+            TimeUnit.MINUTES,
+            new ArrayBlockingQueue<Runnable>(2),
+            new ThreadPoolExecutor.DiscardOldestPolicy()
+    ));
+
+    private  List<JobModuleWrapper> createJobModule(Channel channel,String writeModel){
         List<JobModuleWrapper> jobModuleWrapperList = new ArrayList<>();
         for(Pipeline pipeline :channel.getPipelines()){
             for(DataMediaPair dataMediaPair :pipeline.getPairs()){
-                jobModuleWrapperList.addAll(createJobModule(dataMediaPair));
+                jobModuleWrapperList.addAll(createJobModule(dataMediaPair,writeModel));
             }
         }
         return  jobModuleWrapperList;
     }
 
-    private  List<JobModuleWrapper> createJobModule(DataMediaPair dataMediaPair){
+    private  List<JobModuleWrapper> createJobModule(DataMediaPair dataMediaPair,String writeModel){
         List<JobModuleWrapper> jobModuleWrapperList = new ArrayList<>();
         //提取源有效源数据
         String sourceNamespace = dataMediaPair.getSource().getNamespace();
@@ -89,7 +109,8 @@ public class ChannelDataxJobGenerator {
                         targetSchema,
                         targetName,
                         targetUrl,
-                        result.toArray(columns)
+                        result.toArray(columns),
+                        writeModel
                 );
                 StringBuilder namewrap = new StringBuilder();
                 namewrap.append(sourceNamespace)
@@ -122,7 +143,8 @@ public class ChannelDataxJobGenerator {
                     targetSchema,
                     targetName,
                     targetUrl,
-                    result.toArray(columns)
+                    result.toArray(columns),
+                    writeModel
             );
             StringBuilder namewrap = new StringBuilder();
             namewrap.append(sourceNamespace)
@@ -153,20 +175,28 @@ public class ChannelDataxJobGenerator {
     }
 
     public List<Exec.Result> processTask(Channel channel){
-        List<JobModuleWrapper> jobModuleWrappers = createJobModule(channel);
+        List<JobModuleWrapper> jobModuleWrappers = createJobModule(channel,null);
         for(JobModuleWrapper jobModuleWrapper:jobModuleWrappers){
                createJobScriptFile(jobModuleWrapper);
         }
-       return  doProcess(jobModuleWrappers);
+        return  doProcess(jobModuleWrappers);
     }
 
 
-    public List<Exec.Result> processTask(DataMediaPair dataMediaPair){
-        List<JobModuleWrapper> jobModuleWrappers = createJobModule(dataMediaPair);
+    public String processTask(DataMediaPair dataMediaPair,String writeModel){
+        List<JobModuleWrapper> jobModuleWrappers = createJobModule(dataMediaPair,writeModel);
         for(JobModuleWrapper jobModuleWrapper:jobModuleWrappers){
             createJobScriptFile(jobModuleWrapper);
         }
-        return doProcess(jobModuleWrappers);
+        String requestId = UUID.randomUUID().toString();
+        Future<List<Exec.Result>> future =  completionService.submit(new Callable<List<Exec.Result>>() {
+            @Override
+            public List<Exec.Result> call() throws Exception {
+                return  doProcess(jobModuleWrappers);
+            }
+        });
+        cahceBuilder.put(requestId,future);
+        return requestId;
     }
 
     private List<Exec.Result> doProcess(List<JobModuleWrapper> jobModuleWrappers){
@@ -185,11 +215,27 @@ public class ChannelDataxJobGenerator {
         }
     }
 
+    public String asyncCallReqeust(String requestId){
+       Future<List<Exec.Result>> future =   cahceBuilder.getIfPresent(requestId);
+       try{
+           if(future != null){
+               if(future.isDone()){
+                   List<Exec.Result> results =  future.get();
+                   return "finish";
+               }else{
+                   return "processing";
+               }
+           }else{
+                return requestId+"不纯在";
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+           log.error(e.getMessage());
+           return e.getMessage();
+       }
+    }
 
-
-
-
-    private JobModuleWrapper wrapper(String sourceUsername,String sourcePassword,String sourceSchema,String  sourceTable,String sourceUrl,String targetUsername,String targetPassword,String targetSchema,String targetTable,String targetUrl,String columns[]){
+    private JobModuleWrapper wrapper(String sourceUsername,String sourcePassword,String sourceSchema,String  sourceTable,String sourceUrl,String targetUsername,String targetPassword,String targetSchema,String targetTable,String targetUrl,String columns[],String writeModel){
         //一个
         JobModuleWrapper wrapper = new JobModuleWrapper();
         wrapper.setSourceUsername(sourceUsername);
@@ -201,7 +247,14 @@ public class ChannelDataxJobGenerator {
         if(".*".equalsIgnoreCase(targetTable) || !StringUtils.isNotBlank(targetTable)){
             targetTable = sourceTable;
         }
-        wrapper.setPreSql(targetTable);
+        if(StringUtils.isNotBlank(writeModel)){
+            wrapper.setWriteModel(writeModel);
+        }
+        if("replace".equalsIgnoreCase(writeModel) || "update".equalsIgnoreCase(writeModel)){
+            wrapper.setPreSql("");
+        }else{
+            wrapper.setPreSql(targetTable);
+        }
         wrapper.setTargetPassword(targetPassword);
         wrapper.setTargetUsername(targetUsername);
         wrapper.setTargetUrl(targetUrl,targetSchema);
