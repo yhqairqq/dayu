@@ -216,7 +216,7 @@ public class ChannelController {
             });
         }else if("history".equalsIgnoreCase(channelForm.getStart())){
           try{
-              SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
+              SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
               Date now = simpleDateFormat.parse(channelForm.getStartTime());
               if(!CollectionUtils.isEmpty(channel.getPipelines())){
                   channel.getPipelines().stream().forEach(item->{
