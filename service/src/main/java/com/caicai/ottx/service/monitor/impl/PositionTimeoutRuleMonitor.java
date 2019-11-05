@@ -40,7 +40,9 @@ public class PositionTimeoutRuleMonitor extends AbstractRuleMonitor {
     private PipelineService pipelineService;
     @Autowired
     private ArbitrateViewService arbitrateViewService;
-    private static final String  TIME_OUT_MESSAGE = "pid:%s position %s seconds no update";
+
+
+    private static final String  TIME_OUT_MESSAGE = "pid:%s channelid:%s position %s seconds no update";
 
     PositionTimeoutRuleMonitor(){
         MonitorRuleExplorerRegisty.register(MonitorName.POSITIONTIMEOUT, this);
@@ -72,8 +74,8 @@ public class PositionTimeoutRuleMonitor extends AbstractRuleMonitor {
         }
 
         if (flag) {
-            logRecordAlarm(pipelineId, MonitorName.POSITIONTIMEOUT,
-                           String.format(TIME_OUT_MESSAGE, pipelineId, (elapsed / 1000)));
+            logRecordAlarm(pipelineId,MonitorName.POSITIONTIMEOUT,
+                           String.format(TIME_OUT_MESSAGE , pipelineId,pipeline.getChannelId(), (elapsed / 1000)));
         }
     }
 
@@ -81,13 +83,13 @@ public class PositionTimeoutRuleMonitor extends AbstractRuleMonitor {
         if (!inPeriod(rule)) {
             return false;
         }
-
+        Pipeline pipeline = pipelineService.findById( rule.getPipelineId());
         String matchValue = rule.getMatchValue();
         matchValue = StringUtils.substringBeforeLast(matchValue, "@");
         Long maxSpentTime = Long.parseLong(StringUtils.trim(matchValue));
         // sinceLastSync是毫秒，而 maxSpentTime 是秒
         if (elapsed >= (maxSpentTime * 1000)) {
-            sendAlarm(rule, String.format(TIME_OUT_MESSAGE, rule.getPipelineId(), (elapsed / 1000)));
+            sendAlarm(rule, String.format(TIME_OUT_MESSAGE , rule.getPipelineId(),pipeline.getChannelId(), (elapsed / 1000)));
             return true;
         }
         return false;

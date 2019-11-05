@@ -100,7 +100,7 @@ public class AlarmRuleServiceImpl implements AlarmRuleService {
         alarmRuleDOMapperExt.insertSelective(modelToDo(alarmRule));
     }
     private AlarmRuleDO modelToDo(AlarmRule alarmRule) {
-      AlarmRuleDO alarmRuleDo = new AlarmRuleDO();
+        AlarmRuleDO alarmRuleDo = new AlarmRuleDO();
         alarmRuleDo.setId(alarmRule.getId());
         alarmRuleDo.setMatchValue(alarmRule.getMatchValue());
         alarmRuleDo.setMonitorName(alarmRule.getMonitorName());

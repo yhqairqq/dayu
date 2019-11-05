@@ -19,8 +19,10 @@ package com.caicai.ottx.service.monitor.impl;
 import com.alibaba.otter.shared.common.model.config.alarm.AlarmRule;
 import com.alibaba.otter.shared.common.model.config.alarm.AlarmRuleStatus;
 import com.alibaba.otter.shared.common.model.config.alarm.MonitorName;
+import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.alibaba.otter.shared.communication.model.arbitrate.NodeAlarmEvent;
 import com.caicai.ottx.service.config.alarm.AlarmRuleService;
+import com.caicai.ottx.service.config.pipeline.PipelineService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -34,10 +36,13 @@ import java.util.List;
  */
 public class ExceptionRuleMonitor extends AbstractRuleMonitor {
 
-    private static final String MESAGE_FORMAT = "pid:%s nid:%s exception:%s";
+    private static final String MESAGE_FORMAT = "pid:%s channelid:%s nid:%s exception:%s";
 
     @Autowired
     private AlarmRuleService alarmRuleService;
+
+    @Autowired
+    private PipelineService pipelineService;
 
     // ExceptionRuleMonitor(){
     // MonitorRuleExplorerRegisty.register(MonitorName.EXCEPTON, this);
@@ -54,8 +59,9 @@ public class ExceptionRuleMonitor extends AbstractRuleMonitor {
             return;
         }
         NodeAlarmEvent alarmEvent = (NodeAlarmEvent) data;
+        Pipeline pipeline = pipelineService.findById(alarmEvent.getPipelineId());
         // 异常一定需要记录日志
-        String message = String.format(MESAGE_FORMAT, alarmEvent.getPipelineId(), alarmEvent.getNid(),
+        String message = String.format(MESAGE_FORMAT, alarmEvent.getPipelineId(),pipeline.getChannelId(), alarmEvent.getNid(),
                                        alarmEvent.getMessage());
         logRecordAlarm(pipelineId, alarmEvent.getNid(), MonitorName.EXCEPTION, message);
         // 报警检查

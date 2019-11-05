@@ -44,15 +44,15 @@ public class ChannelDataxJobGenerator {
 
     public static final Cache<String, Future<List<Exec.Result>>> cahceBuilder =
             CacheBuilder.newBuilder().
-                    expireAfterWrite(1, TimeUnit.MINUTES)
-                    .expireAfterAccess(1,TimeUnit.MINUTES)
+                    expireAfterWrite(10, TimeUnit.MINUTES)
+                    .expireAfterAccess(10,TimeUnit.MINUTES)
                     .build();
 
 
     private ExecutorCompletionService<List<Exec.Result>> completionService = new ExecutorCompletionService<List<Exec.Result>>(new ThreadPoolExecutor(
             4,
             4,
-            1,
+            2,
             TimeUnit.MINUTES,
             new ArrayBlockingQueue<Runnable>(2),
             new ThreadPoolExecutor.DiscardOldestPolicy()
@@ -250,11 +250,13 @@ public class ChannelDataxJobGenerator {
         if(StringUtils.isNotBlank(writeModel)){
             wrapper.setWriteModel(writeModel);
         }
-        if("replace".equalsIgnoreCase(writeModel) || "update".equalsIgnoreCase(writeModel)){
-            wrapper.setPreSql("");
-        }else{
-            wrapper.setPreSql(targetTable);
-        }
+        wrapper.setPreSql("");
+        //临时方案
+//        if("replace".equalsIgnoreCase(writeModel) || "update".equalsIgnoreCase(writeModel)){
+//            wrapper.setPreSql("");
+//        }else{
+//            wrapper.setPreSql(targetTable);
+//        }
         wrapper.setTargetPassword(targetPassword);
         wrapper.setTargetUsername(targetUsername);
         wrapper.setTargetUrl(targetUrl,targetSchema);

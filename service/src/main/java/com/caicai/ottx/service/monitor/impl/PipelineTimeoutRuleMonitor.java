@@ -18,8 +18,10 @@ package com.caicai.ottx.service.monitor.impl;
 
 import com.alibaba.otter.shared.common.model.config.alarm.AlarmRule;
 import com.alibaba.otter.shared.common.model.config.alarm.MonitorName;
+import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.alibaba.otter.shared.common.model.statistics.throughput.ThroughputStat;
 import com.alibaba.otter.shared.common.model.statistics.throughput.ThroughputType;
+import com.caicai.ottx.service.config.pipeline.PipelineService;
 import com.caicai.ottx.service.monitor.MonitorRuleExplorerRegisty;
 import com.caicai.ottx.service.statistics.table.param.ThroughputCondition;
 import com.caicai.ottx.service.statistics.throughput.ThroughputStatService;
@@ -32,10 +34,13 @@ import java.util.List;
 
 public class PipelineTimeoutRuleMonitor extends AbstractRuleMonitor {
 
-    private static final String   TIME_OUT_MESSAGE = "pid:%s elapsed %s seconds no sync";
+    private static final String   TIME_OUT_MESSAGE = "pid:%s channelId:%s elapsed %s seconds no sync";
 
     @Autowired
     private ThroughputStatService throughputStatService;
+
+    @Autowired
+    private PipelineService pipelineService;
 
     PipelineTimeoutRuleMonitor(){
         MonitorRuleExplorerRegisty.register(MonitorName.PIPELINETIMEOUT, this);
@@ -47,7 +52,7 @@ public class PipelineTimeoutRuleMonitor extends AbstractRuleMonitor {
             return;
         }
         Long pipelineId = rules.get(0).getPipelineId();
-
+        Pipeline pipeline = pipelineService.findById(pipelineId);
         ThroughputCondition condition = new ThroughputCondition();
         condition.setPipelineId(pipelineId);
         condition.setType(ThroughputType.ROW);
@@ -67,7 +72,7 @@ public class PipelineTimeoutRuleMonitor extends AbstractRuleMonitor {
 
         if (flag) {
             logRecordAlarm(pipelineId, MonitorName.PIPELINETIMEOUT,
-                           String.format(TIME_OUT_MESSAGE, pipelineId, (elapsed / 1000)));
+                           String.format(TIME_OUT_MESSAGE, pipelineId,pipeline.getChannelId(), (elapsed / 1000)));
         }
     }
 
@@ -75,13 +80,14 @@ public class PipelineTimeoutRuleMonitor extends AbstractRuleMonitor {
         if (!inPeriod(rule)) {
             return false;
         }
-
+        Long pipelineId = rule.getPipelineId();
+        Pipeline pipeline = pipelineService.findById(pipelineId);
         String matchValue = rule.getMatchValue();
         matchValue = StringUtils.substringBeforeLast(matchValue, "@");
         Long maxSpentTime = Long.parseLong(StringUtils.trim(matchValue));
         // sinceLastSync是毫秒，而 maxSpentTime 是秒
         if (elapsed >= (maxSpentTime * 1000)) {
-            sendAlarm(rule, String.format(TIME_OUT_MESSAGE, rule.getPipelineId(), (elapsed / 1000)));
+            sendAlarm(rule, String.format(TIME_OUT_MESSAGE, rule.getPipelineId(),pipeline.getChannelId(),  (elapsed / 1000)));
             return true;
         }
         return false;

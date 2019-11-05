@@ -18,9 +18,12 @@ package com.caicai.ottx.service.monitor.impl;
 
 import com.alibaba.otter.shared.common.model.config.alarm.AlarmRule;
 import com.alibaba.otter.shared.common.model.config.alarm.MonitorName;
+import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.alibaba.otter.shared.common.model.statistics.delay.DelayStat;
+import com.caicai.ottx.service.config.pipeline.PipelineService;
 import com.caicai.ottx.service.statistics.delay.DelayStatService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
@@ -31,11 +34,14 @@ import java.util.List;
  */
 public class DelayStatRuleMonitor extends AbstractRuleMonitor {
 
-    private static final String DELAY_TIME_MESSAGE        = "pid:%s delay_time:%s seconds";
-    private static final String DELAY_UPDATE_MESSAGE      = "pid:%s delay %s seconds no update";
-    private static final String DELAY_TIME_UPDATE_MESSAGE = "pid:%s delay_time:%s seconds, but delay %s seconds no update";
+    private static final String DELAY_TIME_MESSAGE        = "pid(%s):%s delay_time:%s seconds";
+    private static final String DELAY_UPDATE_MESSAGE      = "pid(%s):%s delay %s seconds no update";
+    private static final String DELAY_TIME_UPDATE_MESSAGE = "pid(%s):%s delay_time:%s seconds, but delay %s seconds no update";
 
+    @Autowired
     private DelayStatService delayStatService;
+    @Autowired
+    private PipelineService pipelineService;
 
     @Override
     public void explore(List<AlarmRule> rules) {
@@ -45,6 +51,7 @@ public class DelayStatRuleMonitor extends AbstractRuleMonitor {
 
         // 进入到监控项级别的rule，pipelineId一定是相同的
         Long pipelineId = rules.get(0).getPipelineId();
+        Pipeline pipeline = pipelineService.findById(pipelineId);
         DelayStat delayStat = delayStatService.findRealtimeDelayStat(pipelineId);
         Long delayTime = 0L; // seconds
         Long delayUpdate = 0L;
@@ -67,13 +74,13 @@ public class DelayStatRuleMonitor extends AbstractRuleMonitor {
         }
 
         if (delayTimeFlag && !delayUpdateFlag) {
-            logRecordAlarm(pipelineId, MonitorName.DELAYTIME, String.format(DELAY_TIME_MESSAGE, pipelineId, delayTime));
+            logRecordAlarm(pipelineId, MonitorName.DELAYTIME, String.format(DELAY_TIME_MESSAGE, pipelineId,pipeline.getName(), delayTime));
         } else if (delayTimeFlag && delayUpdateFlag) {
             logRecordAlarm(pipelineId, MonitorName.DELAYTIME,
-                           String.format(DELAY_TIME_UPDATE_MESSAGE, pipelineId, delayTime, delayUpdate));
+                           String.format(DELAY_TIME_UPDATE_MESSAGE, pipelineId,pipeline.getName(), delayTime, delayUpdate));
         } else if (delayUpdateFlag) {
             logRecordAlarm(pipelineId, MonitorName.DELAYTIME,
-                           String.format(DELAY_UPDATE_MESSAGE, pipelineId, delayUpdate));
+                           String.format(DELAY_UPDATE_MESSAGE, pipelineId,pipeline.getName(), delayUpdate));
         }
     }
 
