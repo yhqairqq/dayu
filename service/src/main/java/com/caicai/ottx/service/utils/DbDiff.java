@@ -24,6 +24,7 @@ import com.alibaba.otter.shared.common.model.config.data.db.DbMediaSource;
 import com.alibaba.otter.shared.common.model.config.pipeline.Pipeline;
 import com.alibaba.otter.shared.common.utils.thread.NamedThreadFactory;
 import com.alibaba.otter.shared.compare.model.IndexTable;
+import com.caicai.ottx.service.trans.model.DataMediaPairTrans;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -103,6 +104,18 @@ public class DbDiff {
           }
         }
     }
+
+    public void compare(DataMediaPairTrans dataMediaPairTrans) throws Exception{
+        DataMediaPair dataMediaPair = new DataMediaPair();
+        dataMediaPair.setId(dataMediaPairTrans.getId());
+        dataMediaPair.setSource(dataMediaPairTrans.getSource());
+        dataMediaPair.setTarget(dataMediaPairTrans.getTarget());
+        Exception e =   worker(dataMediaPair);
+        if(e != null){
+            throw worker(dataMediaPair);
+        }
+    }
+
 
     private Exception worker(DataMediaPair dataMediaPair) {
         DataMedia source = dataMediaPair.getSource();

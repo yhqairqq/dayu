@@ -2,7 +2,7 @@
 ch.qos.logback.classic.filter.LevelFilter   将过滤器的日志级别配置为INFO，所有INFO级别的日志交给appender处理，非INFO级别的日志，被过滤掉。 -->
 <configuration>
     <property name="APP_Name" value="logs" />
-    <!--<property name="log.dir" value="/home/data/logs"></property>-->
+    <property name="log.dir" value="./logs"></property>
     <timestamp key="bySecond" datePattern="yyyyMMdd HHmmss"/>
     <contextName>${APP_Name}</contextName>
 

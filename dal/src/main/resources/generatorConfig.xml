@@ -73,14 +73,14 @@
         </javaClientGenerator>
 
         <!-- 配置表信息 -->
-        <table schema="otter" tableName="tag" domainObjectName="TagDO">
+        <table schema="otter" tableName="data_media_pair_trans" domainObjectName="DataMediaPairTransDO">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="otter" tableName="tag_channel_relation" domainObjectName="TagChannelRelationDO">
-            <property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table schema="otter" tableName="tag_channel_relation" domainObjectName="TagChannelRelationDO">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
         <!--<table schema="otter" tableName="autokeeper_cluster" domainObjectName="AutoKeeperClusterDO">-->
             <!--<property name="useActualColumnNames" value="false"/>-->
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->

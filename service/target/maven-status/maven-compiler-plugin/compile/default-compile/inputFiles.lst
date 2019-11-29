@@ -47,6 +47,7 @@
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/record/impl/LogRecordServiceImpl.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/channel/impl/TagServiceImpl.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/record/LogRecordService.java
+/Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/trans/impl/DataMediaPairTransServiceImpl.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/position/impl/PositionServiceImpl.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/monitor/Monitor.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/remote/NodeRemoteService.java
@@ -59,6 +60,7 @@
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/channel/TagService.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/sys/SysResourceService.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/remote/StatsRemoteService.java
+/Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/trans/DataMediaPairTransService.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/common/exceptions/InvalidConfigureException.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/monitor/impl/DefaultAlarmController.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/statistics/table/param/RealtimeThroughputCondition.java
@@ -87,6 +89,7 @@
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/channel/model/TagChannelRelation.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/statistics/table/impl/TableStatServiceImpl.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/config/autokeeper/AutoKeeperClusterService.java
+/Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/trans/model/DataMediaPairTrans.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/common/alarm/DingDingAlarmService.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/utils/DataSourceChecker.java
 /Users/YHQ/workspace/dayu-manager/service/src/main/java/com/caicai/ottx/service/remote/ConfigRemoteService.java

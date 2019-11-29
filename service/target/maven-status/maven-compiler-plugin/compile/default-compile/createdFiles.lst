@@ -76,14 +76,17 @@ com/caicai/ottx/service/config/datacolumnpair/impl/DataColumnPairGroupServiceImp
 com/caicai/ottx/service/monitor/impl/PipelineMonitor$1.class
 com/caicai/ottx/service/statistics/delay/param/TopDelayStat$DataStat.class
 com/caicai/ottx/service/config/pipeline/impl/PipelineServiceImpl$1.class
+com/caicai/ottx/service/trans/impl/DataMediaPairTransServiceImpl.class
 com/caicai/ottx/service/utils/DbDiff$2.class
 com/caicai/ottx/service/config/sys/UserSessionService.class
+com/caicai/ottx/service/utils/ChannelDataxJobGenerator$1.class
 com/caicai/ottx/service/statistics/throughput/ThroughputStatService.class
 com/caicai/ottx/service/remote/impl/StatsRemoteServiceImpl$4.class
 com/caicai/ottx/service/statistics/stage/impl/ProcessStatServiceImpl.class
 com/caicai/ottx/service/monitor/impl/DelayStatRuleMonitor.class
 com/caicai/ottx/service/common/arbitrate/ArbitrateConfigImpl.class
 com/caicai/ottx/service/config/datamediapair/DataMediaPairService.class
+com/caicai/ottx/service/trans/DataMediaPairTransService.class
 com/caicai/ottx/service/config/sys/impl/UserSessionServiceImpl.class
 com/caicai/ottx/service/config/channel/impl/TagChannelRelationServiceImpl.class
 com/caicai/ottx/service/config/autokeeper/impl/AutoKeeperClusterServiceImpl.class
@@ -99,6 +102,7 @@ com/caicai/ottx/service/autokeeper/AutoKeeperStatService.class
 com/caicai/ottx/service/statistics/table/param/ThroughputCondition.class
 com/caicai/ottx/service/config/datacolumnpair/DataColumnPairService.class
 com/caicai/ottx/service/monitor/AlarmRecovery.class
+com/caicai/ottx/service/trans/model/DataMediaPairTrans.class
 com/caicai/ottx/service/common/exceptions/InvalidConfigureException.class
 com/caicai/ottx/service/autokeeper/impl/AutoKeeperStatServiceImpl.class
 com/caicai/ottx/service/utils/DbDiff$3.class

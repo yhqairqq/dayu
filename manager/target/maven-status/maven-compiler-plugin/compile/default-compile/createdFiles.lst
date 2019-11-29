@@ -1,7 +1,7 @@
+com/caicai/ottx/manager/controller/transpair/DataMediaPairTransController.class
+com/caicai/ottx/manager/DayuManagerLauncher$1.class
 com/caicai/ottx/manager/aspect/TokenVerifyInterceptor.class
-com/caicai/ottx/manager/OtterManagerLauncher$1.class
 com/caicai/ottx/manager/controller/system/UserController.class
-com/caicai/ottx/manager/OtterManagerLauncher.class
 com/caicai/ottx/manager/controller/position/PositionController.class
 com/caicai/ottx/manager/controller/alarm/form/AlarmForm.class
 com/caicai/ottx/manager/controller/ValidForm.class
@@ -21,6 +21,7 @@ com/caicai/ottx/manager/controller/autokeeper/form/ZookeeperForm.class
 com/caicai/ottx/manager/controller/full/FullSyncController.class
 com/caicai/ottx/manager/aspect/HeaderModifierAdvice.class
 com/caicai/ottx/manager/web/common/model/SeniorDataMatrix.class
+com/caicai/ottx/manager/DayuManagerLauncher.class
 com/caicai/ottx/manager/config/BeansConfig.class
 com/caicai/ottx/manager/controller/logrecord/LogRecordController.class
 com/caicai/ottx/manager/controller/system/form/LoginForm.class
@@ -34,6 +35,7 @@ com/caicai/ottx/manager/web/common/model/SeniorChannel.class
 com/caicai/ottx/manager/controller/BaseForm.class
 com/caicai/ottx/manager/controller/meta/form/MetaForm.class
 com/caicai/ottx/manager/config/ApplicationContextProvider.class
+com/caicai/ottx/manager/controller/transpair/form/TransPairForm.class
 com/caicai/ottx/manager/controller/analysis/form/AnalysisForm.class
 com/caicai/ottx/manager/config/WebConfig.class
 com/caicai/ottx/manager/config/CrosConfig.class
