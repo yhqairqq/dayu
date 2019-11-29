@@ -5,285 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab4c4acf-b7a1-4294-be28-2a00e9e7cc12" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/OtterManagerLauncher$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/OtterManagerLauncher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manager/target/classes/otter.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/target/common-sources.jar" afterPath="$PROJECT_DIR$/common/target/common-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/target/common.jar" afterPath="$PROJECT_DIR$/common/target/common.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/mybatis_generator-sources.jar" afterPath="$PROJECT_DIR$/dal/target/mybatis_generator-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/mybatis_generator.jar" afterPath="$PROJECT_DIR$/dal/target/mybatis_generator.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarm/AlarmController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarm/AlarmController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarm/form/AlarmForm.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarm/form/AlarmForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarmrule/AlarmRuleController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/alarmrule/AlarmRuleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AnalysisController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AnalysisController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AsynRequestCache$1.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AsynRequestCache$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AsynRequestCache.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/AsynRequestCache.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/model/PlotCell.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/analysis/model/PlotCell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/canal/CanalController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/canal/CanalController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/canal/form/CanalForm.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/canal/form/CanalForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/channel/ChannelController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/channel/ChannelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/full/FullSyncController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/full/FullSyncController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/full/form/SyncForm.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/full/form/SyncForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/media/MediaController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/media/MediaController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/media/form/MediaForm.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/media/form/MediaForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediapair/MediaPairController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediapair/MediaPairController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediapair/form/MediaPairForm.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediapair/form/MediaPairForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediasource/MediaSourceController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/mediasource/MediaSourceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/meta/MetaController.class" afterPath="$PROJECT_DIR$/manager/target/classes/com/caicai/ottx/manager/controller/meta/MetaController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/manager-sources.jar" afterPath="$PROJECT_DIR$/manager/target/manager-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/manager.jar" afterPath="$PROJECT_DIR$/manager/target/manager.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/manager.jar.original" afterPath="$PROJECT_DIR$/manager/target/manager.jar.original" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController$PoolKey.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController$PoolKey.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController$PoolValue.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController$PoolValue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DefaultAlarmController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DelayStatRuleMonitor.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/DelayStatRuleMonitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/ExceptionRuleMonitor.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/ExceptionRuleMonitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/PipelineTimeoutRuleMonitor.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/PipelineTimeoutRuleMonitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/PositionTimeoutRuleMonitor.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/monitor/impl/PositionTimeoutRuleMonitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/trans/DataMediaPairTransService.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/trans/DataMediaPairTransService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/trans/impl/DataMediaPairTransServiceImpl.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/trans/impl/DataMediaPairTransServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/ChannelDataxJobGenerator.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/ChannelDataxJobGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$1.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$2.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$3.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$4.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$5.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$DayCounter.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff$DayCounter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/DbDiff.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/JobModule.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/JobModule.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/JobModuleWrapper.class" afterPath="$PROJECT_DIR$/service/target/classes/com/caicai/ottx/service/utils/JobModuleWrapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/service-sources.jar" afterPath="$PROJECT_DIR$/service/target/service-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/service.jar" afterPath="$PROJECT_DIR$/service/target/service.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/23cae0a5-140f-4e8f-9414-dcbea8916b60.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/23cae0a5-140f-4e8f-9414-dcbea8916b60.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_101tec_zkclient_0_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_101tec_zkclient_0_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ado_tanmi_fastdfs_client_ext_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ado_tanmi_fastdfs_client_ext_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_citrus_citrus_webx_all_3_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_citrus_citrus_webx_all_3_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_5_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_5_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_31.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_31.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastsql_fastsql_2_0_0_preview_644.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastsql_fastsql_2_0_0_preview_644.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_common_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_common_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_filter_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_filter_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_instance_manager_1_1_2_2_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_instance_manager_1_1_2_2_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_meta_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_meta_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_1_1_2_1_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_1_1_2_1_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_dbsync_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_dbsync_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_driver_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_parse_driver_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_protocol_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_protocol_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_sink_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_sink_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_store_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_canal_store_1_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_manager_biz_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_manager_biz_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_manager_web_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_manager_web_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_arbitrate_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_arbitrate_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_common_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_common_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_communication_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_communication_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_compared_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_compared_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_push_4_2_18_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_otter_shared_push_4_2_18_SNAPSHOT.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_4_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_4_4_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ecs_4_16_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ecs_4_16_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_aviator_aviator_2_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_aviator_aviator_2_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_196.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_196.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_happy_mybatisGeneratorExt_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_happy_mybatisGeneratorExt_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellij_annotations_9_0_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellij_annotations_9_0_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_lmax_disruptor_3_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lmax_disruptor_3_4_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_1_0_7_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_1_0_7_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ecs_ecs_1_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ecs_ecs_1_4_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_7_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_7_0_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_45.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_45.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_javacc_javacc_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_javacc_javacc_5_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_9.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_jexl_2_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_jexl_2_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ddlutils_ddlutils_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ddlutils_ddlutils_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_studio_org_apache_commons_pool_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_studio_org_apache_commons_pool_1_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_8.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ibatis_ibatis_sqlmap_2_3_4_726.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ibatis_ibatis_sqlmap_2_3_4_726.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_velocity_velocity_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_velocity_velocity_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_5_1_alpha.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_5_1_alpha.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_4_13.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_4_13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_csource_fastdfs_client_java_1_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_csource_fastdfs_client_java_1_27.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_directwebremoting_dwr_3_0_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_directwebremoting_dwr_3_0_2_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_27_incubating.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_27_incubating.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_0_2_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_0_2_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jacoco_org_jacoco_agent_runtime_0_8_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jacoco_org_jacoco_agent_runtime_0_8_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1212_jre7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1212_jre7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_18.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_18.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_9_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_13_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_13_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__oro_oro_2_0_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__oro_oro_2_0_8.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/null" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009163027.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009163316.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009163833.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009173549.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009174057.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009174257.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009174557.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009194348.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009200417.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009202626.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009211725.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_a-otter_sink-sink_a-20191009212232.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_b-otter_sink-sink_b-20191019125513.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datax/job/otter_sink-source_b-otter_sink-sink_b-20191019125719.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/dal/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/generatorConfig.xml" afterPath="$PROJECT_DIR$/dal/target/classes/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/AlarmRuleDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/AlarmRuleDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/AlarmRuleDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/AlarmRuleDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/AutoKeeperClusterDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/AutoKeeperClusterDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/AutoKeeperClusterDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/AutoKeeperClusterDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/CanalDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/CanalDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/CanalDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/CanalDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/ChannelDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/ChannelDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/ChannelDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/ChannelDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairGroupDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairGroupDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairGroupDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataColumnPairGroupDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMatrixDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMatrixDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMatrixDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMatrixDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaPairDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaPairDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaPairDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaPairDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaSourceDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaSourceDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaSourceDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DataMediaSourceDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DelayStatDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DelayStatDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/DelayStatDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/DelayStatDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/LogRecordDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/LogRecordDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/LogRecordDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/LogRecordDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/NodeDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/NodeDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/NodeDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/NodeDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineNodeRelationDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineNodeRelationDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineNodeRelationDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/PipelineNodeRelationDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/SysResourceDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/SysResourceDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/SysResourceDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/SysResourceDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/SystemParameterDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/SystemParameterDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/SystemParameterDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/SystemParameterDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TableHistoryStatDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TableHistoryStatDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TableHistoryStatDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TableHistoryStatDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TableStatDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TableStatDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TableStatDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TableStatDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TagChannelRelationDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TagChannelRelationDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TagChannelRelationDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TagChannelRelationDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TagDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TagDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/TagDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/TagDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/ThroughputStatDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/ThroughputStatDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/ThroughputStatDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/ThroughputStatDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/UserDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/UserDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/UserDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/UserDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/UserSessionDOMapper.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/UserSessionDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/classes/mapper/UserSessionDOMapperExt.xml" afterPath="$PROJECT_DIR$/dal/target/classes/mapper/UserSessionDOMapperExt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/dal/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dal/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/dal/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/manager/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/application.properties" afterPath="$PROJECT_DIR$/manager/target/classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/manager/target/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/classes/logback.xml" afterPath="$PROJECT_DIR$/manager/target/classes/logback.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/manager/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/main/java/com/caicai/ottx/service/utils/DbDiff.java" afterPath="$PROJECT_DIR$/service/src/main/java/com/caicai/ottx/service/utils/DbDiff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-alarm.xml" afterPath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-alarm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-datasource.xml" afterPath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-datasource.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-monitor.xml" afterPath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-monitor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-remote.xml" afterPath="$PROJECT_DIR$/service/target/classes/spring/ottx-manager-remote.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -365,24 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="54">
-                <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -451,8 +176,8 @@
       <file leaf-file-name="GenericResult.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/src/main/java/com/caicai/ottx/common/GenericResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state relative-caret-position="135">
+              <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -1487,12 +1212,12 @@
       <workItem from="1573873023525" duration="3767000" />
       <workItem from="1574568902092" duration="50000" />
       <workItem from="1574581103074" duration="1263000" />
-      <workItem from="1574997075615" duration="233000" />
+      <workItem from="1574997075615" duration="1591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="899375000" />
+    <option name="totallyTimeSpent" value="900733000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1505,6 +1230,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1018" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1529,7 +1255,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3188889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23666666" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37111112" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22200158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0868872" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2246,7 +1972,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -2301,8 +2027,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/com/caicai/ottx/common/GenericResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        <state relative-caret-position="135">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
