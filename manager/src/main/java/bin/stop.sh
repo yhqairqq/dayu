@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 pidfile=dayu.pid
 if [ ! -f "$pidfile" ];then
-	echo "otter is not running. exists"
+	echo "dayu is not running. exists"
 	exit
 fi
 
